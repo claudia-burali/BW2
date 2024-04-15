@@ -1,0 +1,43 @@
+const URL = "https://deezerdevs-deezer.p.rapidapi.com/album/%7Bid%7D";
+
+window.addEventListener("DOMContentLoaded", () => {
+  fetch(URL, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "285e755c43mshee6ccde0f56b047p1fd3b7jsn69d102243084",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw new Error("Error getting the images");
+      }
+    })
+    .then((albums) => {
+      const row = document.getElementById("row");
+      console.log(row);
+      console.log(albums);
+      albums.forEach((album) => {
+        const col = document.createElement("div");
+        col.classList.add("col");
+        col.innerHTML = `<div class="card border-black shadow-sm"> 
+        <img src=${album.imageUrl} class="card-img-top" width="100%" alt="${album.name}">
+        <div class="card-body"> 
+        <p class="card-text">${album.name}</p> 
+        <p class="card-text">€${album.description}</p> 
+        <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+        <a href="details.html?appId=${album._id}" class="btn btn-dark text-warning">Learn more</a>
+        </div>
+        </div>
+        </div>
+        </div>`;
+        row.appendChild(col);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
