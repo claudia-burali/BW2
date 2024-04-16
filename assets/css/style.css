@@ -71,7 +71,9 @@ main {
     }
   }
 }
-
+.main-section {
+  height: 92vh;
+}
 .main-section-btn {
   background-color: #0a0a0a;
   button {
