@@ -2,7 +2,8 @@ let albumContainer = document.getElementById("album");
 const albumIds = [
   92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
   388425797, 1434890, 127402, 81797, 6364781, 130380032, 428115167, 74606742, 1318764, 8015598, 125584, 14879699,
-  36963671, 1262269, 108444952, 10966644,
+  36963671, 1262269, 108444952, 10966644, 1262268, 9674822, 1347637, 51001312, 217658902, 14581088, 6575789, 97418,
+  96844662, 78630952, 387946, 105611582,
 ];
 
 const limit = 5;
@@ -55,7 +56,7 @@ const album = () => {
 let artistContainer = document.getElementById("artist");
 const artistIds = [
   1182, 214810, 1026, 406, 4138, 5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 331727,
-  1092125, 647650, 464, 98, 407, 399, 3702, 860, 1994, 652,
+  1092125, 647650, 464, 98, 407, 399, 3702, 860, 1994, 652, 848, 3037, 119, 5337922, 545, 27, 2814, 371, 931, 383, 689,
 ];
 const URL_ARTIST_BASE = "https://deezerdevs-deezer.p.rapidapi.com/artist/";
 
@@ -86,7 +87,8 @@ const fetchArtist = (artistId) => {
       artistCard.innerHTML = ` 
   <img src=${artist.picture} alt="${artist.name}">
   <div> 
-  <h3>${artist.name}</h3> 
+  <h3>${artist.name}</h3>
+  <p>Best of ${artist.name}</p> 
   </div>`;
       artistContainer.appendChild(artistCard);
     })
