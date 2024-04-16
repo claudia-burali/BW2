@@ -6,8 +6,6 @@ const albumIds = [
   96844662, 78630952, 387946, 105611582, 6816700,
 ];
 
-const limit = 5;
-
 const URL_ALBUM_BASE = "https://deezerdevs-deezer.p.rapidapi.com/album/";
 
 const fetchAlbum = (albumId) => {
@@ -130,7 +128,8 @@ const fetchPlaylist = (playlistId) => {
     .then((playlist) => {
       console.log("Playlist aggiunta con successo:", playlist);
       let namePlaylist = document.createElement("li");
-      namePlaylist.className = ("hiddentext", "mt-3");
+      namePlaylist.classList.add("mt-3");
+      namePlaylist.classList.add("hiddentext");
       namePlaylist.innerText = playlist.description;
       playlistContainer.appendChild(namePlaylist);
     })
