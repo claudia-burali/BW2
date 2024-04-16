@@ -1,7 +1,7 @@
 let playlistContainer = document.getElementById("playlist");
 const playlistIds = [
-  5714797982, 4332995842, 3439773242, 1950386602, 1306931615, 4485213484, 1419215845, 4503967722, 3428639822,
-  7973829562, 1402845615, 8212241962,
+  5714797982, 4332995842, 3439773242, 1950386602, 1306931615, 4485213484,
+  1419215845, 4503967722, 3428639822, 7973829562, 1402845615, 8212241962,
 ];
 const URL_PLAYLIST_BASE = "https://deezerdevs-deezer.p.rapidapi.com/playlist/";
 
@@ -23,12 +23,10 @@ const fetchPlaylist = (playlistId) => {
     })
     .then((playlist) => {
       console.log("Playlist aggiunta con successo:", playlist);
-      let ULplaylist = document.createElement("ul");
       let namePlaylist = document.createElement("li");
+      namePlaylist.className = ("hiddentext", "mt-3");
       namePlaylist.innerText = playlist.description;
-
-      ULplaylist.appendChild(namePlaylist);
-      playlistContainer.appendChild(ULplaylist);
+      playlistContainer.appendChild(namePlaylist);
     })
     .catch((error) => {
       console.error("Errore:", error);
