@@ -44,6 +44,9 @@ main {
       }
     }
   }
+  .btn-logo {
+    background-color: #1db954;
+  }
   .iconsL:hover {
     color: white;
   }
@@ -62,7 +65,7 @@ main {
     padding-inline-start: 0;
     li {
       list-style: none;
-      :hover {
+      &:hover {
         color: white;
       }
     }
@@ -74,6 +77,9 @@ main {
   button {
     width: 34px;
     height: 34px;
+  }
+  &:hover {
+    background-color: rgb(129, 129, 129);
   }
 }
 
@@ -144,4 +150,69 @@ main {
 
 ::-webkit-scrollbar-thumb {
   background: grey;
+}
+
+.link {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+.link:hover {
+  color: white;
+}
+.size {
+  font-size: 0.9em;
+}
+.color {
+  color: white;
+}
+
+footer svg {
+  cursor: pointer;
+  fill: rgb(179, 179, 179);
+  &:hover {
+    fill: white;
+  }
+}
+footer button {
+  background-color: transparent;
+  border: none;
+}
+#playBtn {
+  svg {
+    fill: black;
+  }
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 7rem;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #575757;
+  border-radius: 0.5rem;
+  height: 0.2rem;
+}
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4px;
+
+  /*custom styles*/
+  background-color: white;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
 }
