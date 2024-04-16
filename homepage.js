@@ -1,9 +1,11 @@
-const URL = "https://deezerdevs-deezer.p.rapidapi.com/album/%7Bid%7D";
+const URL = "https://deezerdevs-deezer.p.rapidapi.com/album/" + caso;
 
 window.addEventListener("DOMContentLoaded", () => {
   fetch(URL, {
     method: "GET",
+    body: JSON.stringify(),
     headers: {
+      "Content-Type": "application/json",
       "X-RapidAPI-Key": "285e755c43mshee6ccde0f56b047p1fd3b7jsn69d102243084",
       "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
     },
@@ -16,9 +18,10 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
     .then((albums) => {
-      const row = document.getElementById("row");
-      console.log(row);
       console.log(albums);
+      /*const row = document.getElementById("row");
+      console.log(row);
+      
       albums.forEach((album) => {
         const col = document.createElement("div");
         col.classList.add("col");
@@ -35,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         </div>
         </div>`;
         row.appendChild(col);
-      });
+      });*/
     })
     .catch((err) => {
       console.log(err);
