@@ -1,0 +1,147 @@
+body {
+  font-family: "Circular", sans-serif;
+  height: 100vh;
+}
+
+.text-color {
+  color: rgb(179, 179, 179);
+}
+
+main {
+  .iconsL {
+    color: rgb(179, 179, 179);
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    svg {
+      margin-right: 20px;
+      height: 24px;
+      width: 24px;
+    }
+    p {
+      margin: 0;
+      font-size: 0.8em;
+    }
+    img {
+      margin-right: 20px;
+      height: 24px;
+      width: 24px;
+      border-radius: 3px;
+    }
+    .bookmark {
+      margin-right: 20px;
+      height: 24px;
+      width: 24px;
+      border-radius: 3px;
+      background-color: #015040;
+      display: flex;
+      justify-content: center;
+      svg {
+        color: #1db954;
+        width: 16px;
+        margin: 0;
+      }
+    }
+  }
+  .iconsL:hover {
+    color: white;
+  }
+  .left-side-bar {
+    height: 92vh;
+    min-width: 400px;
+  }
+  .right-side-bar {
+    min-width: 300px;
+  }
+}
+
+.playlist-container {
+  padding-block-start: 0em;
+  ul {
+    padding-inline-start: 0;
+    li {
+      list-style: none;
+      :hover {
+        color: white;
+      }
+    }
+  }
+}
+
+.main-section-btn {
+  background-color: gray;
+  border-radius: 50px;
+  button {
+    width: 34px;
+  }
+}
+
+.dropdown button {
+  border-radius: 30px;
+  padding: 2px 10px 2px 2px;
+  background-color: #0a0a0a;
+  border: 0;
+}
+
+.friends-activity {
+  color: rgb(179, 179, 179);
+  p {
+    font-weight: 500;
+    color: white;
+    margin: 0;
+  }
+  svg {
+    :hover {
+      color: white;
+    }
+  }
+}
+
+.iconsR {
+  list-style: none;
+}
+
+.friend-image {
+  border-radius: 50px;
+  width: 3em;
+  margin-inline-end: 5px;
+}
+
+.last-session {
+  font-size: 0.7rem;
+}
+
+.card-title {
+  font-size: 0.9rem;
+}
+
+.album-section {
+  padding: 0;
+  margin: 0;
+}
+
+.card-body {
+  padding: 0;
+  p {
+    font-size: 0.8em;
+  }
+}
+
+.album-section {
+  p {
+    font-size: 0.7em;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+}
