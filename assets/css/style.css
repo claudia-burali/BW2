@@ -70,10 +70,10 @@ main {
 }
 
 .main-section-btn {
-  background-color: #1d1d1d;
-  border-radius: 50px;
+  background-color: #0a0a0a;
   button {
     width: 34px;
+    height: 34px;
   }
 }
 
