@@ -1,0 +1,24 @@
+.hero-container {
+  h2 {
+    font-size: 4em;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  small {
+    font-size: 0.8em;
+  }
+  .playbutton {
+    background-color: #1db954;
+    &:hover {
+      background-color: #05ff5c;
+    }
+  }
+  .annuncedbutton {
+    font-size: 0.7em;
+    background-color: rgb(56, 56, 56);
+    &:hover {
+      background-color: rgb(129, 129, 129);
+    }
+  }
+}
