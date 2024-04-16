@@ -52,7 +52,7 @@ main {
   }
   .left-side-bar {
     height: 92vh;
-    min-width: 400px;
+    width: 400px;
   }
   .right-side-bar {
     min-width: 300px;
