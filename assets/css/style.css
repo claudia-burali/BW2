@@ -52,7 +52,7 @@ main {
   }
   .left-side-bar {
     height: 92vh;
-    min-width: 400px;
+    width: 400px;
   }
   .right-side-bar {
     min-width: 300px;
@@ -215,4 +215,11 @@ input[type="range"]::-webkit-slider-thumb {
   height: 0.8rem;
   width: 0.8rem;
   border-radius: 50%;
+}
+
+.pocotesto {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
