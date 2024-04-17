@@ -152,10 +152,10 @@ const fetchartist = (randomArtist) => {
       let artistCard = document.createElement("div");
       artistCard.innerHTML = ` <div class="col mb-3">
       <div class="card shadow-sm background-costum p-3" style="height:300px">
-      <img src=${artist.picture_xl} alt="${artist.name} class="img-fluid card-img-top">
+      <img src=${artist.picture_xl} alt="${artist.name}" class="img-fluid rounded-circle card-img-top">
       <div class="card-body text-white"> 
       <h3 class="card-title my-2">${artist.name}</h3> 
-      <p class="card-text my-2">Best of ${artist.name}</p>
+      <p class="card-text text-secondary my-2">Artista</p>
       </div>
       </div>
       </div>`;
