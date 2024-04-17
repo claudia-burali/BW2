@@ -62,7 +62,9 @@ const randomPlaylistCard = () => {
 
 const albumIds = [
   92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
-  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332,
+  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
+  428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671, 1262269, 108444952, 10966644, 1262268, 9674822,
+  1347637, 51001312, 217658902, 14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
 ];
 const randomAlbums = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -117,7 +119,7 @@ const album = () => {
 
 const artistIds = [
   5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 12726119, 1092125, 647650, 464, 98, 407,
-  399, 58447102, 4050205,
+  399, 58447102, 4050205, 331727, 3702, 860, 1994, 652, 848, 3037, 119, 5337922, 545, 27, 2814, 371, 931, 383, 689,
 ];
 const randomArtists = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -148,11 +150,13 @@ const fetchartist = (randomArtist) => {
     .then((artist) => {
       console.log("artist aggiunto con successo:", artist);
       let artistCard = document.createElement("div");
-      artistCard.innerHTML = ` 
-      <div class="card shadow-sm bg-dark">
-      <img src=${artist.picture_xl} alt="${artist.name} class="img-fluid card-img-top px-3 py-3">
+      artistCard.innerHTML = ` <div class="col mb-3">
+      <div class="card shadow-sm background-costum p-3" style="height:300px">
+      <img src=${artist.picture_xl} alt="${artist.name} class="img-fluid card-img-top">
       <div class="card-body text-white"> 
-      <h3 class="card-title py-2">${artist.name}</h3> 
+      <h3 class="card-title my-2">${artist.name}</h3> 
+      <p class="card-text my-2">Best of ${artist.name}</p>
+      </div>
       </div>
       </div>`;
       document.getElementById("rowArtist").appendChild(artistCard);
