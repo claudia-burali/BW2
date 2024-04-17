@@ -144,8 +144,59 @@ const playlist = () => {
   });
 };
 
+////VISUALIZZAZIONE RANDOM CARD PLAYLIST
+const randomPlaylist = (array) => {
+  array.sort(() => Math.random() - 0.5);
+  return array.slice(0, 6);
+};
+
+const randomPlaylistCard = () => {
+  const randomIds = randomPlaylist(playlistIds);
+
+  randomIds.forEach((playlistId) => {
+    const URL_PLAYLIST = URL_PLAYLIST_BASE + playlistId;
+
+    fetch(URL_PLAYLIST, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "6f35a7534dmsh170a35a7f1e9982p1897d8jsn7cd6556a179e",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Errore nella richiesta HTTP");
+        }
+        return response.json();
+      })
+      .then((playlistData) => {
+        console.log("Playlist random:", playlistData);
+
+        let cardDiv = document.createElement("div");
+        cardDiv.innerHTML = `
+        <div class="card bg-secondary p-0" style="max-width: 300px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src=${playlistData.picture_small} class="img-fluid rounded-start" alt="playlist cover" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-white">
+                <h5 class="card-title">${playlistData.title} </h5>
+              </div>
+            </div>
+          </div>
+          </div> `;
+        document.getElementById("row").appendChild(cardDiv);
+      })
+      .catch((error) => {
+        console.error("Errore:", error);
+      });
+  });
+};
+
 window.onload = () => {
   album();
   playlist();
+  randomPlaylistCard();
   artist();
 };
