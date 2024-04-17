@@ -1,0 +1,90 @@
+.header-main-section {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+
+main {
+  .main-section {
+    color: white;
+    position: relative;
+    .backgroundArtistImage {
+      height: 650px;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-left: 30px;
+      h1 {
+        font-size: 6em;
+        font-weight: 700;
+      }
+      .verifiedArtist {
+        margin: 0;
+        margin-left: 5px;
+        font-size: 0.8em;
+      }
+      .fan {
+        font-size: 0.9em;
+        margin-bottom: 3em;
+      }
+    }
+
+    .buttonsArtist {
+      margin-top: 20px;
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      .playbutton {
+        background-color: #1db954;
+        width: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .followBtn {
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        font-size: 0.7em;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+    .popularTracks {
+      margin-top: 20px;
+      margin-left: 20px;
+      .track {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        p {
+          margin: 0;
+          color: rgb(179, 179, 179);
+        }
+        .numberTrack {
+          font-size: 0.8em;
+          text-align: right;
+        }
+
+        img {
+          width: 50px;
+          border-radius: 5px;
+          margin-inline: 20px;
+        }
+        .track:hover {
+          cursor: pointer;
+          background-color: #2e2e2e;
+          p {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
