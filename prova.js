@@ -46,7 +46,7 @@ const randomPlaylistCard = () => {
           <div class="card background-costum p-0">
             <div class="row g-3 align-items-center">
               <div class="col-auto">
-                <img src=${playlistArray.album.cover} class="img-fluid rounded-start" alt="playlist cover" />
+                <img src=${playlistArray.album.cover} class="img-fluid rounded-start" alt="playlist cover" style="height:70px" />
               </div>
               <div class="col">
                 <div class="card-body text-white">
