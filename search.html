@@ -225,7 +225,7 @@
             <div class="container hero-container" id="containerMain"></div>
             <div>
               <div class="container text-center text-light">
-                <div class="row g-0 text-center" id="posterContainer">
+                <div class="row g-2 text-center" id="posterContainer">
                   <div>
                     <h3>Sfoglia tutto</h3>
                   </div>
@@ -558,7 +558,7 @@
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoPrimo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -574,19 +574,37 @@
           </button>
           <button id="playBtn">
             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+              id="svgPausa"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+              />
+            </svg>
+
+            <svg
               width="20"
               data-encore-id="icon"
               role="img"
               aria-hidden="true"
               viewBox="0 0 16 16"
               class="Svg-sc-ytk21e-0 dYnaPI"
+              id="svgPlay"
+              style="display: none"
             >
               <path
                 d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoSecondo">
             <svg
               width="20"
               data-encore-id="icon"
