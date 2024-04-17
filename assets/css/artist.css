@@ -18,15 +18,15 @@ main {
       h1 {
         font-size: 6em;
         font-weight: 700;
-      }
-      .verifiedArtist {
-        margin: 0;
-        margin-left: 5px;
-        font-size: 0.8em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0);
       }
       .fan {
         font-size: 0.9em;
         margin-bottom: 3em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0);
+      }
+      .verifiedCostum {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0);
       }
     }
 
@@ -70,6 +70,9 @@ main {
         .numberTrack {
           font-size: 0.8em;
           text-align: right;
+        }
+        .titleTrack {
+          font-size: 1.1em;
         }
 
         img {
