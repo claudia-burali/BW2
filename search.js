@@ -99,6 +99,13 @@ let search = () => {
 
         branoCard.addEventListener("click", () => {
           playAudio(brano.preview);
+          let imgAlbumFooter = document.getElementById("imgAlbumFooter");
+          imgAlbumFooter.src = brano.album.cover;
+          let titoloAlbumFooter = document.getElementById("titoloAlbumFooter");
+          titoloAlbumFooter.innerText = brano.album.title;
+          let artistaAlbumFooter =
+            document.getElementById("artistaAlbumFooter");
+          artistaAlbumFooter.innerText = brano.album.name;
         });
         divBrani.appendChild(branoCard);
       });
