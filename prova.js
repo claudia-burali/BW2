@@ -42,26 +42,27 @@ const randomPlaylistCard = () => {
 
   random.forEach((playlistArray) => {
     let cardDiv = document.createElement("div");
-    cardDiv.innerHTML = `
-          <div class="card bg-secondary p-0" style="max-width: 300px">
-            <div class="row g-0">
-              <div class="col-md-4">
+    cardDiv.innerHTML = ` <div class="col mb-3">
+          <div class="card background-costum p-0">
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
                 <img src=${playlistArray.album.cover} class="img-fluid rounded-start" alt="playlist cover" />
               </div>
-              <div class="col-md-8">
+              <div class="col">
                 <div class="card-body text-white">
                   <h5 class="card-title">${playlistArray.title} </h5>
                 </div>
               </div>
             </div>
+            </div>
             </div> `;
-    document.getElementById("row").appendChild(cardDiv);
+    document.getElementById("rowPlaylist").appendChild(cardDiv);
   });
 };
 
 const albumIds = [
   92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
-  388425797, 1434890, 127402, 10966644,137272602, 309377597, 6816700, 469682765, 560398332
+  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332,
 ];
 const randomAlbums = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -92,12 +93,13 @@ const fetchAlbum = (randomAlbum) => {
     .then((album) => {
       console.log("Album aggiunto con successo:", album);
       let albumCard = document.createElement("div");
-      albumCard.innerHTML = ` 
-      <div class="card shadow-sm bg-dark">
-      <img src=${album.cover_xl} alt="${album.title} class="img-fluid card-img-top px-3 py-3">
-      <div class="card-body text-white py-2"> 
-      <h3 class="card-title">${album.title}</h3> 
-      <p class="card-text">${album.artist.name}</p>
+      albumCard.innerHTML = ` <div class="col mb-3">
+      <div class="card shadow-sm background-costum p-3" style="height:300px">
+      <img src=${album.cover_xl} alt="${album.title} class="img-fluid card-img-top">
+      <div class="card-body text-white"> 
+      <h3 class="card-title my-2">${album.title}</h3> 
+      <p class="card-text my-2">${album.artist.name}</p>
+      </div>
       </div>
       </div>`;
       document.getElementById("rowAlbum").appendChild(albumCard);
@@ -113,12 +115,9 @@ const album = () => {
   });
 };
 
-
-
-
 const artistIds = [
-  5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 12726119,
-  1092125, 647650, 464, 98, 407, 399, 58447102, 4050205
+  5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 12726119, 1092125, 647650, 464, 98, 407,
+  399, 58447102, 4050205,
 ];
 const randomArtists = (array) => {
   array.sort(() => Math.random() - 0.5);
