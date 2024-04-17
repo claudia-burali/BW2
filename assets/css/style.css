@@ -52,10 +52,10 @@ main {
   }
   .left-side-bar {
     height: 92vh;
-    width: 400px;
+    width: 350px;
   }
   .right-side-bar {
-    min-width: 300px;
+    width: 250px;
   }
 }
 
@@ -73,6 +73,7 @@ main {
 }
 .main-section {
   height: 92vh;
+  background-color: #1d1d1d;
 }
 .main-section-btn {
   background-color: #0a0a0a;
@@ -180,6 +181,11 @@ footer button {
   background-color: transparent;
   border: none;
 }
+
+.footer-costum {
+  background-color: #1d1d1d;
+}
+
 #playBtn {
   svg {
     fill: black;
@@ -224,4 +230,8 @@ input[type="range"]::-webkit-slider-thumb {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.background-costum {
+  background-color: #2e2e2e;
 }
