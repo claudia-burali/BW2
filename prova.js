@@ -1,3 +1,93 @@
+const trackIds = [
+  5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 12726119, 1092125, 647650, 464, 98, 407,
+  399, 58447102, 4050205, 331727, 3702, 860, 1994, 652, 848, 3037, 119, 5337922, 545, 27, 2814, 371, 931, 383, 689,
+];
+const randomtracks = (array) => {
+  array.sort(() => Math.random() - 0.5);
+  return array.slice(0, 1);
+};
+
+const randomtrackArray = randomtracks(trackIds);
+console.log(randomtrackArray);
+
+const URL_track_BASE = "https://deezerdevs-deezer.p.rapidapi.com/track/";
+
+const fetchtrack = (randomtrack) => {
+  const URL_track = URL_track_BASE + randomtrack;
+
+  fetch(URL_track, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "e23e65d97bmshc3b906327a3687ap1be94fjsn81aa82475de1",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Errore nella richiesta HTTP");
+      }
+      return response.json();
+    })
+    .then((track) => {
+      console.log("track aggiunto con successo:", track);
+      let trackCard = document.createElement("div");
+      trackCard.innerHTML = ` 
+      <div class="col-2">
+                  <div>
+                    <img src="${track.picture_xl}" alt="" class="img-fluid" />
+                  </div>
+                </div>
+                <div class="col-8">
+                  <small class="text-light">${track.album.title}</small>
+                  <h2 class="text-light">${track.name}</h2>
+                  <p class="text-light">${track.artist.name}</p>
+                  <p class="text-light">Ascolta il nuovo singolo di ${track.artist.name}!</p>
+                  <div class="d-flex align-items-center gap-2">
+                    <button class="btn playbutton rounded rounded-pill px-4 text-black fw-semibold">Play</button>
+                    <button class="btn rounded rounded-pill px-4 btn-outline-light">Salva</button>
+                    <div class="dropdown d-inline">
+                      <button
+                        class="btn btn-outline-light px-3"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Aggiungi in coda</a></li>
+                        <li><a class="dropdown-item" href="#">Vai a Radio dell'artista</a></li>
+                        <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+                        <li><a class="dropdown-item" href="#">Condividi</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2 d-flex justify-content-end align-items-start" id="hiddenButtonContainer">
+                  <button
+                    class="btn annuncedbutton text-white-50 rounded rounded-pill py-1 hiddenButton fw-semibold"
+                    href="#annuncio"
+                  >
+                    NASCONDI ANNUNCI
+                  </button>
+                </div>
+                </div>`;
+      document.getElementById("annuncio").appendChild(trackCard);
+    })
+    .catch((error) => {
+      console.error("Errore:", error);
+    });
+};
+
+const track = () => {
+  randomtrackArray.forEach((randomtrack) => {
+    fetchtrack(randomtrack);
+  });
+};
+
+
+
+
 let playlistContainer = document.getElementById("playlist");
 const URL = "https://deezerdevs-deezer.p.rapidapi.com/search?q=pop%20playlist";
 const playlistArray = [];
@@ -172,6 +262,7 @@ const artist = () => {
   });
 };
 window.onload = () => {
+  track()
   album();
   artist();
 };
