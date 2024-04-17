@@ -222,11 +222,11 @@
                 </div>
               </div>
             </div>
-            <div class="container hero-container" id="containerMain">
-              <section class="row bg-black bg-gradient mt-3 py-4" id="annuncio">
-                <div class="container text-center text-light">
+            <div class="container hero-container" id="containerMain"></div>
+            <div>
+              <div class="container text-center text-light">
+                <div class="row g-0 text-center" id="posterContainer">
                   <div>
-                    <div class="row g-0 text-center" id="posterContainer"></div>
                     <h3>Sfoglia tutto</h3>
                   </div>
                   <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
@@ -412,9 +412,7 @@
                     </div>
                   </div>
                 </div>
-              </section>
-            </div>
-            <div>
+              </div>
               <h2 class="px-3 text-light">Ciao</h2>
               <div class="container">
                 <div
@@ -866,7 +864,14 @@
               ></path>
             </svg>
           </label>
-          <input type="range" id="volume" name="volume" min="0" max="50" />
+          <input
+            type="range"
+            id="volume"
+            name="volume"
+            min="0"
+            max="1"
+            step="0.01"
+          />
         </div>
         <button>
           <svg

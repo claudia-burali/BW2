@@ -2,7 +2,9 @@ let containerMain = document.getElementById("containerMain");
 let searchInput = document.getElementById("searchInput");
 let posterContainer = document.getElementById("posterContainer");
 let currentQuery = "";
+let volumeBrano = document.getElementById("volume");
 
+///CONTROLLI AUDIO
 searchInput.addEventListener("input", () => {
   const searchValue = searchInput.value;
   if (searchValue !== "") {
@@ -11,6 +13,25 @@ searchInput.addEventListener("input", () => {
     search();
   } else {
     posterContainer.hidden = false;
+    containerMain.innerHTML = "";
+  }
+});
+let currentAudio = null;
+
+let playAudio = (audioUrl) => {
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+  currentAudio = new Audio(audioUrl);
+
+  let volumeBrano = document.getElementById("volume").value;
+  currentAudio.volume = volumeBrano;
+  currentAudio.play();
+};
+
+volumeBrano.addEventListener("input", () => {
+  if (currentAudio) {
+    currentAudio.volume = volumeBrano.value;
   }
 });
 
@@ -35,13 +56,14 @@ let search = () => {
       // Creazione del div per l'album principale
       let divRow = document.createElement("div");
       divRow.className = "row";
+      divRow.style.cursor = "pointer";
 
       let divAlbumPrincipale = document.createElement("div");
       divAlbumPrincipale.className = "col-md-4";
       divAlbumPrincipale.innerHTML = `
       <h4 class="text-light text-center mt-3"> Risultato più rilevante</h4>
           <div class="card mt-2">
-                <img src="${search.data[0].album.cover}" class="card-img-top" alt="Album cover">
+                <img src="${search.data[0].album.cover_big}" class="card-img-top" alt="Album cover">
               </div>
                 <div class="card-body mt-3">
                   <h5 class="card-title text-light fs-2 text-center">${search.data[0].album.title}</h5>
@@ -59,6 +81,7 @@ let search = () => {
       divBrani.appendChild(braniText);
       search.data.slice(1, 6).forEach((brano) => {
         let branoCard = document.createElement("div");
+        branoCard.style.cursor = "pointer";
         branoCard.innerHTML = `
           <div class="card mb-3 bg-transparent text-light">
             <div class="row g-0">
@@ -75,10 +98,8 @@ let search = () => {
           </div>`;
 
         branoCard.addEventListener("click", () => {
-          const audio = new Audio(brano.preview);
-          audio.play();
+          playAudio(brano.preview);
         });
-
         divBrani.appendChild(branoCard);
       });
 
