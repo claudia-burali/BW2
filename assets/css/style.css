@@ -52,10 +52,10 @@ main {
   }
   .left-side-bar {
     height: 92vh;
-    width: 400px;
+    width: 350px;
   }
   .right-side-bar {
-    width: 300px;
+    width: 250px;
   }
 }
 
