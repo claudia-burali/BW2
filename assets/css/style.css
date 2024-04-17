@@ -55,7 +55,7 @@ main {
     width: 400px;
   }
   .right-side-bar {
-    min-width: 300px;
+    width: 300px;
   }
 }
 
@@ -73,6 +73,7 @@ main {
 }
 .main-section {
   height: 92vh;
+  max-width: auto;
 }
 .main-section-btn {
   background-color: #0a0a0a;
