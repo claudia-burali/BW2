@@ -178,7 +178,7 @@ let search = () => {
           playAudio(brano.preview);
           svgPlay.style.display = "inline";
           svgPausa.style.display = "none";
-          imgAlbumFooter.src = brano.album.cover;
+          imgAlbumFooter.src = brano.album.cover_medium;
           titoloAlbumFooter.innerText = brano.title;
           artistaAlbumFooter.innerText = brano.artist.name;
         });
