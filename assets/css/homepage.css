@@ -39,3 +39,47 @@
 #containerAlbumPlay {
   max-width: 250px;
 }
+#volume {
+  border-radius: 10px;
+  -webkit-appearance: none;
+}
+
+:root {
+  --percentuale: 0;
+}
+
+#volume {
+  border-radius: 10px;
+  -webkit-appearance: none;
+}
+#volume::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    green 0%,
+    green var(--percentuale),
+    #fff var(--percentuale),
+    #fff 100%
+  );
+}
+
+#volume::-moz-range-track {
+  background: linear-gradient(
+    to right,
+    green 0%,
+    green var(--percentuale),
+    #fff var(--percentuale),
+    #fff 100%
+  );
+}
+#timeProgressBar {
+  margin-top: 10px;
+  height: 3px;
+  background-color: #ddd;
+  border-radius: 5px;
+  transition: width 0.1s ease-in-out, background-color 0.1s ease-in-out; /* Aggiungi transizioni per effetto di animazione */
+}
+#tempoDinamicoBrano p {
+  font-size: 0.7em;
+  color: #929292;
+  margin-top: 2px;
+}

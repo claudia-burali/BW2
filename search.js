@@ -11,6 +11,8 @@ let btnCambiaBranoSuccessivo = document.getElementById("btnCambiaBranoSecondo");
 let imgAlbumFooter = document.getElementById("imgAlbumFooter");
 let titoloAlbumFooter = document.getElementById("titoloAlbumFooter");
 let artistaAlbumFooter = document.getElementById("artistaAlbumFooter");
+let tempoTrascorsoBrano = document.getElementById("tempoTrascorsoBrano");
+let durataBrano = document.getElementById("durataBrano");
 let indexBranoPrecedente = [];
 
 searchInput.addEventListener("input", () => {
@@ -27,6 +29,12 @@ searchInput.addEventListener("input", () => {
   }
 });
 ///CONTROLLI AUDIO
+let formatTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+};
+
 let currentAudio = null;
 
 let playAudio = (audioUrl) => {
@@ -38,13 +46,22 @@ let playAudio = (audioUrl) => {
   let volumeBrano = document.getElementById("volume").value;
   currentAudio.volume = volumeBrano;
   currentAudio.play();
+  currentAudio.addEventListener("timeupdate", () => {
+    tempoTrascorsoBrano.innerText = formatTime(currentAudio.currentTime);
+  });
 };
 
 volumeBrano.addEventListener("input", () => {
   if (currentAudio) {
     currentAudio.volume = volumeBrano.value;
   }
+  const percentage =
+    ((volumeBrano.value - volumeBrano.min) /
+      (volumeBrano.max - volumeBrano.min)) *
+    100;
+  document.documentElement.style.setProperty("--percentuale", percentage + "%");
 });
+
 let pauseTime = 0;
 
 playBtn.addEventListener("click", () => {
@@ -181,6 +198,7 @@ let search = () => {
           imgAlbumFooter.src = brano.album.cover_medium;
           titoloAlbumFooter.innerText = brano.title;
           artistaAlbumFooter.innerText = brano.artist.name;
+          durataBrano.innerText = formatTime(brano.duration);
         });
 
         divBrani.appendChild(branoCard);
