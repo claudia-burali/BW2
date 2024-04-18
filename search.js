@@ -213,7 +213,7 @@ let search = () => {
                 </div>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-12">
-                <p class="text-white-50 text-md-end cursor-pointer mt-xs-3 mt-xl-5">${minutiFormattati}</p>
+                <p class="text-white-50 text-md-end cursor-pointer mt-xs-3 mt-xl-5">${durationFix}</p>
               </div>
             </div>
           </div>`;
