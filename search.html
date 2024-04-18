@@ -17,7 +17,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="responsiveSearch.css" />
+    <link rel="stylesheet" href="./assets/css/responsiveSearch.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/homepage.css" />
@@ -30,7 +30,7 @@
             class="col-auto bg-black left-side-bar d-flex flex-column pt-2"
             id="rightSideBar"
           >
-            <div class="d-flex justify-content-start">
+            <div class="d-flex justify-content-start" id="logo">
               <button
                 id="collapse-left-side-button"
                 aria-haspopup="menu"
@@ -43,7 +43,7 @@
                 <img src="assets/imgs/logo.svg" alt="logo" width="100px" />
               </button>
             </div>
-            <div class="iconsL mt-4">
+            <div class="iconsL mt-4" id="home">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -58,7 +58,7 @@
               </svg>
               <p onclick="window.location.href = 'index.html'">Home</p>
             </div>
-            <div class="iconsL">
+            <div class="iconsL" id="cerca">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -75,7 +75,7 @@
                 Cerca
               </p>
             </div>
-            <div class="iconsL">
+            <div class="iconsL" id="libreria">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -90,7 +90,7 @@
               </svg>
               <p>La tua libreria</p>
             </div>
-            <div class="iconsL mt-4">
+            <div class="iconsL mt-4" id="creaPlaylist">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -105,7 +105,7 @@
               </svg>
               <p>Crea playlist</p>
             </div>
-            <div class="iconsL">
+            <div class="iconsL" id="braniCheTiPiacciono">
               <img
                 aria-hidden="true"
                 draggable="false"
@@ -121,7 +121,7 @@
               />
               <p>Brani che ti piacciono</p>
             </div>
-            <div class="iconsL">
+            <div class="iconsL" id="episodi">
               <span class="bookmark">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -148,12 +148,16 @@
 
           <div class="col main-section overflow-auto pt-3">
             <div>
-              <div class="d-flex justify-content-between container">
-                <div class="d-flex gap-4 align-items-center">
+              <div
+                class="d-flex justify-content-between container"
+                id="searchContainer"
+              >
+                <div class="d-flex gap-4 align-items-center" id="column">
                   <div class="main-section-btn rounded-circle">
                     <button
                       class="btn p-0"
                       onclick="window.location.href = 'index.html'"
+                      id="clickRight"
                     >
                       <svg
                         data-encore-id="icon"
@@ -171,8 +175,23 @@
                       </svg>
                     </button>
                   </div>
+                  <div class="iconsL mt-4" id="homeAfter" style="display: none">
+                    <svg
+                      onclick="window.location.href = 'index.html'"
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      class="Svg-sc-ytk21e-0 bneLcE home-icon QbaKKdcHNA2x3_YJvpYu"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
+                      ></path>
+                    </svg>
+                  </div>
                   <div class="main-section-btn rounded-circle">
-                    <button class="btn p-0">
+                    <button class="btn p-0" id="clickLeft">
                       <span>
                         <svg
                           data-encore-id="icon"
@@ -208,6 +227,7 @@
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
+                      id="iconProfile"
                     >
                       <img
                         src="./assets/imgs/main/StickerLuco.png"
@@ -478,7 +498,7 @@
                 <div class="container">
                   <div class="row">
                     <div
-                      class="col-lg-12 col-md-6 col-sm-3 flex-sm-column mx-sm-auto text-sm-center"
+                      class="col-lg-12 flex-sm-column mx-sm-auto text-sm-center"
                     >
                       <div class="d-flex justify-content-around flex-sm-column">
                         <a class="link" href="#">Informazioni legali</a>
@@ -687,6 +707,7 @@
     </main>
     <footer
       class="footer-costum d-flex justify-content-between align-items-center fixed-bottom"
+      id="footer"
     >
       <div class="d-flex" id="containerAlbumPlay">
         <div class="card m-2 bg-transparent text-light">
@@ -710,7 +731,7 @@
             </div>
           </div>
         </div>
-        <button>
+        <button id="svgHeart">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

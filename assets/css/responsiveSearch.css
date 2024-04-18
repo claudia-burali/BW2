@@ -1,0 +1,103 @@
+@media screen and (max-width: 842px) {
+  #attivitaAmici {
+    display: none !important;
+  }
+  #rightSideBar {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 990px) {
+  #containerLinkFooter {
+    text-align: center !important;
+  }
+}
+@media screen and (max-width: 1128px) {
+  #attivitaAmici {
+    width: 180px;
+  }
+  #rightSideBar {
+    width: 180px;
+  }
+}
+@media screen and (max-width: 842px) {
+  #searchContainer {
+    justify-content: space-evenly !important;
+  }
+}
+@media screen and (max-width: 491px) {
+  #iconProfile {
+    display: none !important;
+  }
+  #clickRight {
+    display: none !important;
+  }
+  #clickLeft {
+    display: none !important;
+  }
+  #homeAfter {
+    display: inline !important;
+  }
+  #column {
+    flex-direction: column !important;
+    margin-top: -10px;
+  }
+  #searchInput {
+    width: 80vw;
+    text-align: center;
+  }
+  .gap-4 {
+    gap: 0rem !important;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .flex-sm-column {
+    flex-direction: row !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+@media screen and (max-width: 710px) {
+  #imgAlbumFooter {
+    display: none;
+  }
+  #svgHeart {
+    display: none;
+  }
+}
+@media screen and(max-width: 750px) {
+  #footerRight button {
+    display: none;
+  }
+  #footer {
+    justify-content: space-evenly !important;
+  }
+}
+
+@media screen and(max-width: 530px) {
+  #footer {
+    flex-direction: column !important;
+  }
+  .col {
+    flex: none !important;
+  }
+  #footerRight {
+    margin-bottom: 10px;
+    margin-top: -10px;
+  }
+}
+@media screen and(max-width: 888px) {
+  .flex-sm-column {
+    flex-direction: column !important;
+  }
+}
+@media screen and(min-width: 226px) {
+  .text-sm-center {
+    text-align: center !important;
+  }
+}
+@media (max-width: 570px) {
+  .text-xs-center {
+    text-align: center;
+  }
+}

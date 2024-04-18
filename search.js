@@ -159,7 +159,7 @@ let search = () => {
 
       // Creazione dei div per i brani successivi
       let divBrani = document.createElement("div");
-      divBrani.className = "col-md-8";
+      divBrani.classList.add("col-md-8", "text-xs-center");
       let braniText = document.createElement("h4");
       braniText.innerText = "Brani";
       braniText.classList.add("text-light", "mt-3", "mb-3");
@@ -176,17 +176,17 @@ let search = () => {
         branoCard.innerHTML = `
           <div class="card mb-3 bg-transparent text-light">
             <div class="row g-0">
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-4 col-xs-12">
                 <img src="${brano.album.cover}" class="img-fluid rounded-start cursor-pointer" alt="Album cover">
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="card-body">
                   <h5 class="card-title cursor-pointer mt-4">${brano.title}</h5>
                   <h5 class="card-title cursor-pointer ">${brano.artist.name}</h5>
                 </div>
               </div>
-              <div class="col-md-4">
-                <p class="text-white-50 text-end cursor-pointer me-5 mt-5">${minutiFormattati}</p>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                <p class="text-white-50 text-md-end cursor-pointer mt-xs-3 mt-xl-5">${minutiFormattati}</p>
               </div>
             </div>
           </div>`;
