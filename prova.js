@@ -159,6 +159,11 @@ const fetchartist = (randomArtist) => {
       </div>
       </div>
       </div>`;
+      artistCard.setAttribute("data-artist-id", artist.id);
+
+      artistCard.addEventListener("click", () => {
+        window.location.href = `artist.html?artistId=${artist.id}`;
+      });
       document.getElementById("rowArtist").appendChild(artistCard);
     })
     .catch((error) => {
@@ -175,3 +180,7 @@ window.onload = () => {
   album();
   artist();
 };
+
+document.getElementById("homeIcon").addEventListener("click", function () {
+  window.location.href = "index.html";
+});
