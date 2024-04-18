@@ -14,6 +14,8 @@ let artistaAlbumFooter = document.getElementById("artistaAlbumFooter");
 let indexBranoPrecedente = [];
 
 searchInput.addEventListener("input", () => {
+  indexBranoPrecedente = [];
+  console.log(indexBranoPrecedente);
   const searchValue = searchInput.value;
   if (searchValue !== "") {
     currentQuery = searchValue;
@@ -62,7 +64,6 @@ playBtn.addEventListener("click", () => {
 });
 
 let search = () => {
-  indexBranoPrecedente = [];
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + currentQuery, {
     method: "GET",
     headers: {
@@ -105,7 +106,6 @@ let search = () => {
       btnCambiaBranoSuccessivo.addEventListener("click", () => {
         const indexCasuale = randomIndex();
         indexBranoPrecedente.push(indexCasuale);
-        console.log(indexBranoPrecedente);
         const branoCasuale = search.data[indexCasuale];
         playAudio(branoCasuale.preview);
         svgPlay.style.display = "inline";
