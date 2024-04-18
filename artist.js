@@ -89,7 +89,6 @@ const getTracks = function (artistId) {
 
 const createTrackList = function (track, index) {
   let trackDiv = document.createElement("div");
-  trackDiv.classList.add("track", "row");
   const durataInSecondi = track.duration;
   const minuti = Math.floor(durataInSecondi / 60);
   const secondi = durataInSecondi % 60;
