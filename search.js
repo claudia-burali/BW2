@@ -62,6 +62,7 @@ playBtn.addEventListener("click", () => {
 });
 
 let search = () => {
+  indexBranoPrecedente = [];
   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + currentQuery, {
     method: "GET",
     headers: {
