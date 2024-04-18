@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spotify_Album_Page</title>
+    <title>Spotify_Home_Page</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/css/homepage.css" />
   </head>
   <body>
     <main>
@@ -30,7 +31,7 @@
                 id="collapse-left-side-button"
                 aria-haspopup="menu"
                 data-testid="more-button"
-                class="Button-sc-1dqy6lx-0 fpsDgO bg-success border-0 rounded-pill"
+                class="Button-sc-1dqy6lx-0 fpsDgO btn-logo border-0 rounded-pill"
                 aria-label="More options for Elisir D'Amor"
                 data-encore-id="buttonTertiary"
                 aria-expanded="false"
@@ -66,7 +67,7 @@
                   d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
                 ></path>
               </svg>
-              <p>Cerca</p>
+              <p id="search" onclick="focusSearch()">Cerca</p>
             </div>
             <div class="iconsL">
               <svg
@@ -132,46 +133,12 @@
               <p>I tuoi episodi</p>
             </div>
             <hr class="text-light mt-1 mb-1" />
-            <div class="playlist-container overflow-auto text-color">
-              <ul>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-              </ul>
+            <div class="playlist-container overflow-x-hidden overflow-y-auto text-color">
+              <ul id="playlist"></ul>
             </div>
           </div>
 
-          <div class="col bg-dark main-section overflow-auto pt-3">
+          <div class="col main-section overflow-auto pt-3">
             <div>
               <div class="d-flex justify-content-between container">
                 <div class="d-flex gap-4 align-items-center">
@@ -231,10 +198,12 @@
                       />
                       Keroro
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-dark">
                       <li><a class="dropdown-item" href="#">Account</a></li>
                       <li><a class="dropdown-item" href="#">Profilo</a></li>
-                      <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Impostazioni</a>
+                      </li>
                       <hr class="mt-1 mb-1" />
                       <li><a class="dropdown-item" href="#">Esci</a></li>
                     </ul>
@@ -242,6 +211,63 @@
                 </div>
               </div>
             </div>
+
+            <div class="d-flex align-items-end gap-3 text-light">
+              <div>
+                <img src="/assets/imgs/main/image-1.jpg" alt="album cover" />
+              </div>
+              <div>
+                <h6>ALBUM</h6>
+                <h1>Album Title</h1>
+                <div>
+                  <img width="50" class="rounded-circle" src="/assets/imgs/main/image-1.jpg" alt="artist picture" />
+                  <a class="link" href="#">Artist Name</a>
+                  <p class="d-inline text-secondary">Anno</p>
+                  <p class="d-inline text-secondary">Numero Brani, Durata</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <button class="btn playbutton rounded-circle bg-success fw-semibold">
+                  <i class="fas fa-play"></i>
+                </button>
+                <button>
+                  <svg
+                    width="20"
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    class="Svg-sc-ytk21e-0 dYnaPI"
+                  >
+                    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path>
+                    <path
+                      d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z"
+                    ></path>
+                  </svg>
+                </button>
+                <button><i class="far fa-arrow-alt-circle-down"></i></button>
+                <div class="dropdown d-inline">
+                  <button
+                    class="btn btn-outline-light px-3"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Aggiungi in coda</a></li>
+                    <li><a class="dropdown-item" href="#">Vai a Radio dell'artista</a></li>
+                    <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+                    <li><a class="dropdown-item" href="#">Condividi</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div></div>
+            </div>
+
             <div class="d-flex flex-column gap-3 py-5">
               <div class="d-flex gap-1 justify-content-between align-items-start">
                 <div>
@@ -291,7 +317,7 @@
             </div>
           </div>
 
-          <div class="col-auto bg-black right-side-bar">
+          <div class="col-auto bg-black right-side-bar d-flex flex-column">
             <div class="container-right-side-bar">
               <div class="d-flex justify-content-between mt-3 friends-activity">
                 <div><p>Attività amici</p></div>
@@ -349,7 +375,9 @@
                             <span class="last-session">4 ore</span>
                           </div>
 
-                          <p class="card-text m-0"><small>In camera • Keroro Plotone</small></p>
+                          <p class="card-text m-0">
+                            <small>In camera • Keroro Plotone</small>
+                          </p>
                           <div class="container d-flex gap-1 album-section align-items-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -386,7 +414,9 @@
                             <span class="last-session">8 ore</span>
                           </div>
 
-                          <p class="card-text m-0"><small>In camera • Keroro Plotone</small></p>
+                          <p class="card-text m-0">
+                            <small>In camera • Keroro Plotone</small>
+                          </p>
                           <div class="container d-flex gap-1 album-section align-items-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -423,7 +453,9 @@
                             <span class="last-session">3 giorni</span>
                           </div>
 
-                          <p class="card-text m-0"><small>In camera • Keroro Plotone</small></p>
+                          <p class="card-text m-0">
+                            <small>In camera • Keroro Plotone</small>
+                          </p>
                           <div class="container d-flex gap-1 album-section align-items-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -451,7 +483,7 @@
         </div>
       </div>
     </main>
-    <footer class="bg-dark d-flex justify-content-between align-items-center fixed-bottom">
+    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom">
       <div class="d-flex">
         <div class="card m-2">
           <div class="row g-0">
@@ -650,6 +682,7 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="albumpage.js"></script>
+
+    <script src="prova.js"></script>
   </body>
 </html>
