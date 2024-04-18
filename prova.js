@@ -1,6 +1,8 @@
 const trackIds = [
-  5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 12726119, 1092125, 647650, 464, 98, 407,
-  399, 58447102, 4050205, 331727, 3702, 860, 1994, 652, 848, 3037, 119, 5337922, 545, 27, 2814, 371, 931, 383, 689,
+  92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
+  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
+  428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671, 1262269, 108444952, 10966644, 1262268, 9674822,
+  1347637, 51001312, 217658902, 14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
 ];
 const randomtracks = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -31,15 +33,15 @@ const fetchtrack = (randomtrack) => {
     .then((track) => {
       console.log("track aggiunto con successo:", track);
       let trackCard = document.createElement("div");
-      trackCard.innerHTML = ` 
+      trackCard.innerHTML = `
       <div class="col-2">
                   <div>
-                    <img src="${track.picture_xl}" alt="" class="img-fluid" />
+                    <img src="${track.album.cover_xl}" alt="" class="img-fluid" />
                   </div>
                 </div>
                 <div class="col-8">
                   <small class="text-light">${track.album.title}</small>
-                  <h2 class="text-light">${track.name}</h2>
+                  <h2 class="text-light">${track.title}</h2>
                   <p class="text-light">${track.artist.name}</p>
                   <p class="text-light">Ascolta il nuovo singolo di ${track.artist.name}!</p>
                   <div class="d-flex align-items-center gap-2">
@@ -71,13 +73,15 @@ const fetchtrack = (randomtrack) => {
                     NASCONDI ANNUNCI
                   </button>
                 </div>
-                </div>`;
+                </div>
+                `;
       document.getElementById("annuncio").appendChild(trackCard);
     })
     .catch((error) => {
       console.error("Errore:", error);
     });
-};
+  };
+
 
 const track = () => {
   randomtrackArray.forEach((randomtrack) => {
