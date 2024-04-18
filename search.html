@@ -67,7 +67,7 @@
                   d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
                 ></path>
               </svg>
-              <p id="search" onclick="search()">Cerca</p>
+              <p id="search" onclick="focusSearch()">Cerca</p>
             </div>
             <div class="iconsL">
               <svg
@@ -133,14 +133,12 @@
               <p>I tuoi episodi</p>
             </div>
             <hr class="text-light mt-1 mb-1" />
-            <div
-              class="playlist-container overflow-x-hidden overflow-y-auto text-color"
-            >
+            <div class="playlist-container overflow-x-hidden overflow-y-auto text-color">
               <ul id="playlist"></ul>
             </div>
           </div>
 
-          <div class="col bg-dark main-section overflow-auto pt-3">
+          <div class="col main-section overflow-auto pt-3">
             <div>
               <div class="d-flex justify-content-between container">
                 <div class="d-flex gap-4 align-items-center">
@@ -232,444 +230,312 @@
                   <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-1.jpeg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-1.jpeg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-10.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-10.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-11.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-11.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-12.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-12.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-13.jpeg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-13.jpeg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-14.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-14.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-51.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-51.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-17.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-17.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-19.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-19.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-29.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-29.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-20.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-20.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-21.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-21.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-22.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-22.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-23.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-23.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-24.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-24.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-25.jpeg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-25.jpeg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-26.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-26.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-27.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-27.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-28.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-28.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                     <div class="col">
                       <div class="p-3">
-                        <img
-                          src="assets/imgs/search/image-30.jpg"
-                          alt="search Img"
-                          class="img-fluid rounded"
-                        />
+                        <img src="assets/imgs/search/image-30.jpg" alt="search Img" class="img-fluid rounded" />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <h2 class="px-3 text-light">Ciao</h2>
-              <div class="container">
-                <div
-                  id="row"
-                  class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 gap-4"
-                ></div>
-              </div>
-              <div>
-                <div id="album"></div>
-                <div id="artist"></div>
-                <div class="d-flex flex-column gap-3 py-5">
-                  <div
-                    class="d-flex gap-1 justify-content-between align-items-start"
-                  >
-                    <div>
-                      <h5 class="color">Azienda</h5>
-                      <a class="d-block link" href="#">Chi siamo</a>
-                      <a class="d-block link" href="#">Opportunità di lavoro</a>
-                      <a class="d-block link" href="#">For the Record</a>
-                    </div>
-                    <div>
-                      <h5 class="color">Community</h5>
-                      <a class="d-block link" href="#">Per artisti</a>
-                      <a class="d-block link" href="#">Sviluppatori</a>
-                      <a class="d-block link" href="#">Pubblicità</a>
-                      <a class="d-block link" href="#">Investitori</a>
-                      <a class="d-block link" href="#">Venditori</a>
-                    </div>
-                    <div>
-                      <h5 class="color">Link utili</h5>
-                      <a class="d-block link" href="#">Assistenza</a>
-                      <a class="d-block link" href="#"
-                        >App per cellulare gratuita</a
-                      >
-                      <a class="d-block link" href="#"
-                        >Diritti del consumatore</a
-                      >
-                    </div>
-                    <div>
-                      <h5 class="color">Piani Spotify</h5>
-                      <a class="d-block link" href="#">Premium Individual</a>
-                      <a class="d-block link" href="#">Premium Duo</a>
-                      <a class="d-block link" href="#">Premium Family</a>
-                      <a class="d-block link" href="#">Premium Student</a>
-                      <a class="d-block link" href="#">Spotify Free</a>
-                    </div>
-                    <div
-                      class="d-flex align-items-center justify-content-center gap-1"
-                    >
-                      <a
-                        class="link main-section-btn rounded-circle btn"
-                        href="#"
-                        ><i class="fab fa-instagram"></i
-                      ></a>
-                      <a
-                        class="link main-section-btn rounded-circle btn"
-                        href="#"
-                        ><i class="fab fa-twitter"></i
-                      ></a>
-                      <a
-                        class="link main-section-btn rounded-circle btn"
-                        href="#"
-                        ><i class="fab fa-facebook"></i
-                      ></a>
-                    </div>
+
+              <div class="d-flex flex-column gap-3 py-5">
+                <div class="d-flex gap-1 justify-content-between align-items-start">
+                  <div>
+                    <h5 class="color">Azienda</h5>
+                    <a class="d-block link" href="#">Chi siamo</a>
+                    <a class="d-block link" href="#">Opportunità di lavoro</a>
+                    <a class="d-block link" href="#">For the Record</a>
                   </div>
-                  <hr class="text-secondary my-2" />
-                  <div class="d-flex justify-content-between gap-1">
-                    <a class="link" href="#">Informazioni legali</a>
-                    <a class="link" href="#"
-                      >Sicurezza e Centro sulla privacy</a
-                    >
-                    <a class="link" href="#">Informativa sulla privacy</a>
-                    <a class="link" href="#">Impostazioni cookie</a>
-                    <a class="link" href="#">Info annunci</a>
-                    <a class="link" href="#">Accessibilità</a>
-                    <p class="text-secondary size">© 2024 Spotify AB</p>
+                  <div>
+                    <h5 class="color">Community</h5>
+                    <a class="d-block link" href="#">Per artisti</a>
+                    <a class="d-block link" href="#">Sviluppatori</a>
+                    <a class="d-block link" href="#">Pubblicità</a>
+                    <a class="d-block link" href="#">Investitori</a>
+                    <a class="d-block link" href="#">Venditori</a>
+                  </div>
+                  <div>
+                    <h5 class="color">Link utili</h5>
+                    <a class="d-block link" href="#">Assistenza</a>
+                    <a class="d-block link" href="#">App per cellulare gratuita</a>
+                    <a class="d-block link" href="#">Diritti del consumatore</a>
+                  </div>
+                  <div>
+                    <h5 class="color">Piani Spotify</h5>
+                    <a class="d-block link" href="#">Premium Individual</a>
+                    <a class="d-block link" href="#">Premium Duo</a>
+                    <a class="d-block link" href="#">Premium Family</a>
+                    <a class="d-block link" href="#">Premium Student</a>
+                    <a class="d-block link" href="#">Spotify Free</a>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center gap-1">
+                    <a class="link main-section-btn rounded-circle btn" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="link main-section-btn rounded-circle btn" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="link main-section-btn rounded-circle btn" href="#"><i class="fab fa-facebook"></i></a>
                   </div>
                 </div>
+                <hr class="text-secondary my-2" />
+                <div class="d-flex justify-content-between gap-1">
+                  <a class="link" href="#">Informazioni legali</a>
+                  <a class="link" href="#">Sicurezza e Centro sulla privacy</a>
+                  <a class="link" href="#">Informativa sulla privacy</a>
+                  <a class="link" href="#">Impostazioni cookie</a>
+                  <a class="link" href="#">Info annunci</a>
+                  <a class="link" href="#">Accessibilità</a>
+                  <p class="text-secondary size">© 2024 Spotify AB</p>
+                </div>
               </div>
+            </div>
+          </div>
 
-              <div class="col-auto bg-black right-side-bar">
-                <div class="container-right-side-bar">
-                  <div
-                    class="d-flex justify-content-between mt-3 friends-activity"
-                  >
-                    <div><p>Attività amici</p></div>
-                    <div>
-                      <ul class="d-flex iconsR gap-3">
-                        <li>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            class="bi bi-person-add"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
-                            />
-                            <path
-                              d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"
-                            />
-                          </svg>
-                        </li>
-                        <li>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            class="bi bi-x-lg"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
-                            />
-                          </svg>
-                        </li>
-                      </ul>
+          <div class="col-auto bg-black right-side-bar d-flex flex-column">
+            <div class="container-right-side-bar">
+              <div class="d-flex justify-content-between mt-3 friends-activity">
+                <div><p>Attività amici</p></div>
+                <div>
+                  <ul class="d-flex iconsR gap-3">
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-person-add"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                        />
+                        <path
+                          d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"
+                        />
+                      </svg>
+                    </li>
+                    <li>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-x-lg"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+                        />
+                      </svg>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="container-friend">
+                <div class="container p-0">
+                  <div class="card mb-4 bg-transparent friend-card">
+                    <div class="row g-0">
+                      <div class="col-md-3">
+                        <img
+                          src="./assets/imgs/main/StickerLuco.png"
+                          class="img-fluid friend-image"
+                          alt="profile img"
+                        />
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body text-color">
+                          <div class="title-container d-flex justify-content-between align-items-center">
+                            <h5 class="card-title m-0">Tamama</h5>
+                            <span class="last-session">4 ore</span>
+                          </div>
+
+                          <p class="card-text m-0">
+                            <small>In camera • Keroro Plotone</small>
+                          </p>
+                          <div class="container d-flex gap-1 album-section align-items-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-disc"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                              <path
+                                d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
+                              />
+                            </svg>
+                            <p class="m-0">EP I</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="container-friend">
-                    <div class="container p-0">
-                      <div class="card mb-4 bg-transparent friend-card">
-                        <div class="row g-0">
-                          <div class="col-md-3">
-                            <img
-                              src="./assets/imgs/main/StickerLuco.png"
-                              class="img-fluid friend-image"
-                              alt="profile img"
-                            />
+                  <div class="card mb-4 bg-transparent friend-card">
+                    <div class="row g-0">
+                      <div class="col-md-3">
+                        <img
+                          src="./assets/imgs/main/StickerLuco.png"
+                          class="img-fluid friend-image"
+                          alt="profile img"
+                        />
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body text-color">
+                          <div class="title-container d-flex justify-content-between align-items-center">
+                            <h5 class="card-title m-0">Giroro</h5>
+                            <span class="last-session">8 ore</span>
                           </div>
-                          <div class="col-md-9">
-                            <div class="card-body text-color">
-                              <div
-                                class="title-container d-flex justify-content-between align-items-center"
-                              >
-                                <h5 class="card-title m-0">Tamama</h5>
-                                <span class="last-session">4 ore</span>
-                              </div>
 
-                              <p class="card-text m-0">
-                                <small>In camera • Keroro Plotone</small>
-                              </p>
-                              <div
-                                class="container d-flex gap-1 album-section align-items-center"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  fill="currentColor"
-                                  class="bi bi-disc"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <path
-                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                  />
-                                  <path
-                                    d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
-                                  />
-                                </svg>
-                                <p class="m-0">EP I</p>
-                              </div>
-                            </div>
+                          <p class="card-text m-0">
+                            <small>In camera • Keroro Plotone</small>
+                          </p>
+                          <div class="container d-flex gap-1 album-section align-items-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-disc"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                              <path
+                                d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
+                              />
+                            </svg>
+                            <p class="m-0">EP II</p>
                           </div>
                         </div>
                       </div>
-                      <div class="card mb-4 bg-transparent friend-card">
-                        <div class="row g-0">
-                          <div class="col-md-3">
-                            <img
-                              src="./assets/imgs/main/StickerLuco.png"
-                              class="img-fluid friend-image"
-                              alt="profile img"
-                            />
-                          </div>
-                          <div class="col-md-9">
-                            <div class="card-body text-color">
-                              <div
-                                class="title-container d-flex justify-content-between align-items-center"
-                              >
-                                <h5 class="card-title m-0">Giroro</h5>
-                                <span class="last-session">8 ore</span>
-                              </div>
-
-                              <p class="card-text m-0">
-                                <small>In camera • Keroro Plotone</small>
-                              </p>
-                              <div
-                                class="container d-flex gap-1 album-section align-items-center"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  fill="currentColor"
-                                  class="bi bi-disc"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <path
-                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                  />
-                                  <path
-                                    d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
-                                  />
-                                </svg>
-                                <p class="m-0">EP II</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                    </div>
+                  </div>
+                  <div class="card mb-4 bg-transparent friend-card">
+                    <div class="row g-0">
+                      <div class="col-md-3">
+                        <img
+                          src="./assets/imgs/main/StickerLuco.png"
+                          class="img-fluid friend-image"
+                          alt="profile img"
+                        />
                       </div>
-                      <div class="card mb-4 bg-transparent friend-card">
-                        <div class="row g-0">
-                          <div class="col-md-3">
-                            <img
-                              src="./assets/imgs/main/StickerLuco.png"
-                              class="img-fluid friend-image"
-                              alt="profile img"
-                            />
+                      <div class="col-md-9">
+                        <div class="card-body text-color">
+                          <div class="title-container d-flex justify-content-between align-items-center">
+                            <h5 class="card-title m-0">Kururu</h5>
+                            <span class="last-session">3 giorni</span>
                           </div>
-                          <div class="col-md-9">
-                            <div class="card-body text-color">
-                              <div
-                                class="title-container d-flex justify-content-between align-items-center"
-                              >
-                                <h5 class="card-title m-0">Kururu</h5>
-                                <span class="last-session">3 giorni</span>
-                              </div>
 
-                              <p class="card-text m-0">
-                                <small>In camera • Keroro Plotone</small>
-                              </p>
-                              <div
-                                class="container d-flex gap-1 album-section align-items-center"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  fill="currentColor"
-                                  class="bi bi-disc"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <path
-                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                  />
-                                  <path
-                                    d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
-                                  />
-                                </svg>
-                                <p class="m-0">EP III</p>
-                              </div>
-                            </div>
+                          <p class="card-text m-0">
+                            <small>In camera • Keroro Plotone</small>
+                          </p>
+                          <div class="container d-flex gap-1 album-section align-items-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-disc"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                              <path
+                                d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
+                              />
+                            </svg>
+                            <p class="m-0">EP III</p>
                           </div>
                         </div>
                       </div>
@@ -682,9 +548,7 @@
         </div>
       </div>
     </main>
-    <footer
-      class="bg-dark d-flex justify-content-between align-items-center fixed-bottom"
-    >
+    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom">
       <div class="d-flex">
         <div class="card m-2">
           <div class="row g-0">
@@ -705,19 +569,9 @@
           </div>
         </div>
         <button>
-          <svg
-            width="20"
-            data-encore-id="icon"
-            role="img"
-            aria-hidden="true"
-            viewBox="0 0 16 16"
-            class="Svg-sc-ytk21e-0 dYnaPI"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" class="bi bi-heart" viewBox="0 0 16 16">
             <path
-              d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
-            ></path>
-            <path
-              d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z"
+              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
             ></path>
           </svg>
         </button>
@@ -842,9 +696,7 @@
             <path
               d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"
             ></path>
-            <path
-              d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
-            ></path>
+            <path d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
           </svg>
         </button>
         <div class="d-flex">
@@ -864,14 +716,7 @@
               ></path>
             </svg>
           </label>
-          <input
-            type="range"
-            id="volume"
-            name="volume"
-            min="0"
-            max="1"
-            step="0.01"
-          />
+          <input type="range" id="volume" name="volume" min="0" max="1" step="0.01" />
         </div>
         <button>
           <svg
