@@ -55,13 +55,12 @@ main {
     }
     .popularTracks {
       margin-top: 20px;
-      margin-left: 20px;
+      padding-inline: 20px;
       .track {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 5px 10px;
-        border-radius: 5px;
         margin-bottom: 10px;
         p {
           margin: 0;
@@ -80,14 +79,17 @@ main {
           border-radius: 5px;
           margin-inline: 20px;
         }
-        .track:hover {
-          cursor: pointer;
-          background-color: #2e2e2e;
-          p {
-            color: white;
-          }
+
+        p {
+          color: white;
         }
       }
     }
   }
+}
+
+.track:hover {
+  cursor: pointer;
+  background-color: #2e2e2e;
+  border-radius: 5px;
 }
