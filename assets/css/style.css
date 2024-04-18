@@ -170,7 +170,7 @@ main {
   color: white;
 }
 
-footer svg {
+/*footer svg {
   cursor: pointer;
   fill: rgb(179, 179, 179);
   &:hover {
@@ -180,8 +180,21 @@ footer svg {
 footer button {
   background-color: transparent;
   border: none;
+}*/
+svg,
+i {
+  cursor: pointer;
+  fill: rgb(179, 179, 179);
+  color: rgb(179, 179, 179);
+  &:hover {
+    fill: white;
+    color: white;
+  }
 }
-
+button {
+  background-color: transparent;
+  border: none;
+}
 .footer-costum {
   background-color: #1d1d1d;
 }
