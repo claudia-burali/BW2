@@ -17,6 +17,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="responsiveSearch.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/homepage.css" />
@@ -25,7 +26,10 @@
     <main>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-auto bg-black left-side-bar d-flex flex-column pt-2">
+          <div
+            class="col-auto bg-black left-side-bar d-flex flex-column pt-2"
+            id="rightSideBar"
+          >
             <div class="d-flex justify-content-start">
               <button
                 id="collapse-left-side-button"
@@ -234,7 +238,9 @@
                   <div>
                     <h3 class="mt-4">Sfoglia tutto</h3>
                   </div>
-                  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                  <div
+                    class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2"
+                  >
                     <div class="col">
                       <div class="p-3">
                         <img
@@ -419,17 +425,18 @@
                 </div>
               </div>
 
-              <div class="d-flex flex-column gap-3 py-5">
+              <div class="d-flex flex-column gap-3 py-5 container">
                 <div
-                  class="d-flex gap-1 justify-content-between align-items-start"
+                  class="d-flex gap-1 justify-content-between align-items-start row"
+                  id="containerLinkFooter"
                 >
-                  <div>
+                  <div class="col-lg-2 col-md-3 col-sm-12">
                     <h5 class="color">Azienda</h5>
                     <a class="d-block link" href="#">Chi siamo</a>
                     <a class="d-block link" href="#">Opportunità di lavoro</a>
                     <a class="d-block link" href="#">For the Record</a>
                   </div>
-                  <div>
+                  <div class="col-lg-2 col-md-3 col-sm-12">
                     <h5 class="color">Community</h5>
                     <a class="d-block link" href="#">Per artisti</a>
                     <a class="d-block link" href="#">Sviluppatori</a>
@@ -437,7 +444,7 @@
                     <a class="d-block link" href="#">Investitori</a>
                     <a class="d-block link" href="#">Venditori</a>
                   </div>
-                  <div>
+                  <div class="col-lg-2 col-md-3 col-sm-12">
                     <h5 class="color">Link utili</h5>
                     <a class="d-block link" href="#">Assistenza</a>
                     <a class="d-block link" href="#"
@@ -445,7 +452,7 @@
                     >
                     <a class="d-block link" href="#">Diritti del consumatore</a>
                   </div>
-                  <div>
+                  <div class="col-lg-2 col-md-3 col-sm-12">
                     <h5 class="color">Piani Spotify</h5>
                     <a class="d-block link" href="#">Premium Individual</a>
                     <a class="d-block link" href="#">Premium Duo</a>
@@ -468,20 +475,33 @@
                   </div>
                 </div>
                 <hr class="text-secondary my-2" />
-                <div class="d-flex justify-content-between gap-1">
-                  <a class="link" href="#">Informazioni legali</a>
-                  <a class="link" href="#">Sicurezza e Centro sulla privacy</a>
-                  <a class="link" href="#">Informativa sulla privacy</a>
-                  <a class="link" href="#">Impostazioni cookie</a>
-                  <a class="link" href="#">Info annunci</a>
-                  <a class="link" href="#">Accessibilità</a>
-                  <p class="text-secondary size">© 2024 Spotify AB</p>
+                <div class="container">
+                  <div class="row">
+                    <div
+                      class="col-lg-12 col-md-6 col-sm-3 flex-sm-column mx-sm-auto text-sm-center"
+                    >
+                      <div class="d-flex justify-content-around flex-sm-column">
+                        <a class="link" href="#">Informazioni legali</a>
+                        <a class="link" href="#"
+                          >Sicurezza e Centro sulla privacy</a
+                        >
+                        <a class="link" href="#">Informativa sulla privacy</a>
+                        <a class="link" href="#">Impostazioni cookie</a>
+                        <a class="link" href="#">Info annunci</a>
+                        <a class="link" href="#">Accessibilità</a>
+                        <p class="text-secondary size">© 2024 Spotify AB</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-auto bg-black right-side-bar d-flex flex-column">
+          <div
+            class="col-auto bg-black right-side-bar d-flex flex-column"
+            id="attivitaAmici"
+          >
             <div class="container-right-side-bar">
               <div class="d-flex justify-content-between mt-3 friends-activity">
                 <div><p>Attività amici</p></div>
@@ -703,7 +723,7 @@
           </svg>
         </button>
       </div>
-      <div class="d-flex flex-column">
+      <div class="d-flex flex-column" id="footerPlayer">
         <div class="d-flex gap-3">
           <button>
             <svg
@@ -806,7 +826,7 @@
           <div class="col-2"><p id="durataBrano">0:00</p></div>
         </div>
       </div>
-      <div class="d-flex gap-1">
+      <div class="d-flex gap-1" id="footerRight">
         <button>
           <svg
             width="20"
