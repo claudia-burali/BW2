@@ -52,6 +52,13 @@ const getAlbum = function (idAlbum) {
       <img style="width:250px" src="${album.cover_xl}" alt="album cover"/>`;
       let h1 = document.querySelector(".albumTitle");
       h1.innerText = album.title;
+      let artistImg = document.getElementById("picture");
+      artistImg.innerHTML = `
+      <img style="width:40px" class="rounded-circle picture" src="${album.artist.picture_small}" alt="artist picture"/>`;
+      let name = document.querySelector(".name");
+      name.innerText = album.artist.name;
+      let date = document.querySelector(".date");
+      date.innerText = "_" + album.release_date + "_";
       let tracks = document.querySelector(".track");
       tracks.innerText = album.nb_tracks + " brani,";
       let duration = document.querySelector(".time");
