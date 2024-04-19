@@ -293,6 +293,7 @@ const fetchAlbum = (randomAlbum) => {
       albumCard.addEventListener("click", () => {
         window.location.href = `album.html?albumId=${album.id}`;
       });
+      document.getElementById("rowAlbum").appendChild(albumCard);
     })
 
     .catch((error) => {
