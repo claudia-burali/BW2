@@ -93,3 +93,25 @@ main {
   background-color: #2e2e2e;
   border-radius: 5px;
 }
+
+.albumTitle {
+  font-size: 80px;
+}
+.name {
+  font-size: 16px;
+  color: white;
+}
+.date {
+  color: white;
+}
+.track {
+  color: white;
+}
+
+.albumbg {
+  background: linear-gradient(rgba(109, 15, 15, 0.644), rgba(44, 21, 21, 0.74));
+}
+
+.dimensione {
+  width: 100px;
+}

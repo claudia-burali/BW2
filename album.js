@@ -52,6 +52,14 @@ const getAlbum = function (idAlbum) {
       <img style="width:250px" src="${album.cover_xl}" alt="album cover"/>`;
       let h1 = document.querySelector(".albumTitle");
       h1.innerText = album.title;
+      let artistImg = document.getElementById("picture");
+      artistImg.innerHTML = `
+      <img style="width:40px" class="rounded-circle picture" src="${album.artist.picture_small}" alt="artist picture"/>`;
+      let name = document.querySelector(".name");
+      name.innerText = album.artist.name;
+      let date = document.querySelector(".date");
+      let year = album.release_date.slice(0, 4);
+      date.innerText = "• " + year + " •";
       let tracks = document.querySelector(".track");
       tracks.innerText = album.nb_tracks + " brani,";
       let duration = document.querySelector(".time");
@@ -104,8 +112,8 @@ const createTrackList = function (track, index) {
 
   trackDiv.innerHTML = `
   <div class="track row">
-    <div class="col-8 d-flex align-items-center">
-      <p class="numberTrack text-right">${index + 1}</p>
+    <div class="col-8 d-flex align-items-center gap-4">
+      <p class="numberTrack text-right m-0">${index + 1}</p>
       <h5 class="titleTrack m-0">${track.title}</h5>
     </div>
     <div class="col-4 d-flex justify-content-between">
