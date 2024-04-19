@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/artist.css" />
+    <link rel="stylesheet" href="./assets/css/homepage.css" />
   </head>
   <body>
     <main>
@@ -486,43 +487,36 @@
       </div>
     </main>
 
-    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom">
-      <div class="d-flex">
-        <div class="card m-2">
+    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom" id="footer">
+      <div class="d-flex" id="containerAlbumPlay">
+        <div class="card m-2 bg-transparent text-light">
           <div class="row g-0">
-            <div class="col">
+            <div class="col col-md-4">
               <img
-                width="70px"
+                width="80vw"
                 src="assets/imgs/main/image-2.jpg"
                 class="img-fluid rounded-start"
                 alt="playlist cover"
+                id="imgAlbumFooter"
               />
             </div>
-            <div class="col">
+            <div class="col col-md-8 text-center">
               <div class="card-body">
-                <h5 class="card-title">Track title</h5>
-                <p>Artist</p>
+                <h5 class="card-title mt-2" id="titoloAlbumFooter">Track title</h5>
+                <p id="artistaAlbumFooter" class="m-0">Artist</p>
               </div>
             </div>
           </div>
         </div>
-        <button>
-          <svg
-            width="20"
-            data-encore-id="icon"
-            role="img"
-            aria-hidden="true"
-            viewBox="0 0 16 16"
-            class="Svg-sc-ytk21e-0 dYnaPI"
-          >
-            <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path>
+        <button id="svgHeart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" class="bi bi-heart" viewBox="0 0 16 16">
             <path
-              d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z"
+              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
             ></path>
           </svg>
         </button>
       </div>
-      <div class="d-flex flex-column">
+      <div class="d-flex flex-column" id="footerPlayer">
         <div class="d-flex gap-3">
           <button>
             <svg
@@ -541,7 +535,7 @@
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoPrimo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -557,19 +551,37 @@
           </button>
           <button id="playBtn">
             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+              id="svgPausa"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+              />
+            </svg>
+
+            <svg
               width="20"
               data-encore-id="icon"
               role="img"
               aria-hidden="true"
               viewBox="0 0 16 16"
               class="Svg-sc-ytk21e-0 dYnaPI"
+              id="svgPlay"
+              style="display: none"
             >
               <path
                 d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoSecondo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -598,9 +610,16 @@
             </svg>
           </button>
         </div>
-        <div></div>
+
+        <div class="row" id="tempoDinamicoBrano">
+          <div class="col-2">
+            <p id="tempoTrascorsoBrano">0:00</p>
+          </div>
+          <div class="col-8"><div id="timeProgressBar"></div></div>
+          <div class="col-2"><p id="durataBrano">0:00</p></div>
+        </div>
       </div>
-      <div class="d-flex gap-1">
+      <div class="d-flex gap-1" id="footerRight">
         <button>
           <svg
             width="20"
@@ -662,7 +681,7 @@
               ></path>
             </svg>
           </label>
-          <input type="range" id="volume" name="volume" min="0" max="50" />
+          <input type="range" id="volume" name="volume" min="0" max="1" step="0.01" />
         </div>
         <button>
           <svg
@@ -680,6 +699,7 @@
         </button>
       </div>
     </footer>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
