@@ -29,8 +29,8 @@ fetch(URL, {
     console.error("Errore:", error);
   });
 
-const getArtist = function (idArtist) {
-  let url = "https://deezerdevs-deezer.p.rapidapi.com/artist/" + idArtist;
+const getAlbum = function (idAlbum) {
+  let url = "https://deezerdevs-deezer.p.rapidapi.com/album/" + idAlbum;
 
   fetch(url, {
     method: "GET",
@@ -45,22 +45,25 @@ const getArtist = function (idArtist) {
       }
       return response.json();
     })
-    .then((artist) => {
-      console.log(artist);
-      let imgArtist = document.querySelector(".backgroundArtistImage");
-      imgArtist.style.backgroundImage = `url(${artist.picture_xl})`;
-      let h1 = document.querySelector(".artistName");
-      h1.innerText = artist.name;
-      let fans = document.querySelector(".fan");
-      fans.innerText = artist.nb_fan + " ascoltatori mensili";
+    .then((album) => {
+      console.log(album);
+      let albumCover = document.getElementById("albumCover");
+      albumCover.innerHTML = `
+      <img src="${album.cover_xl}" alt="album cover"/>`;
+      let h1 = document.querySelector(".albumTitle");
+      h1.innerText = album.title;
+      let tracks = document.querySelector(".track");
+      tracks.innerText = album.nb_tracks + " brani,";
+      let duration = document.querySelector(".time");
+      duration.innerText = album.duration + " sec.";
     })
     .catch((error) => {
       console.error(error);
     });
 };
 
-const getTracks = function (artistId) {
-  let url = "https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId + "/top?limit=5";
+const getTracks = function (albumId) {
+  let url = "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
   fetch(url, {
     method: "GET",
     headers: {
@@ -76,10 +79,10 @@ const getTracks = function (artistId) {
     })
     .then((track) => {
       console.log(track.data);
-      let popularTracksContainer = document.querySelector(".popularTracks");
+      let albumTracksContainer = document.querySelector(".albumTracks");
       track.data.forEach((track, i) => {
         let trackElement = createTrackList(track, i);
-        popularTracksContainer.appendChild(trackElement);
+        albumTracksContainer.appendChild(trackElement);
       });
     })
     .catch((error) => {
@@ -98,7 +101,6 @@ const createTrackList = function (track, index) {
   <div class="track row">
     <div class="col-8 d-flex align-items-center">
       <p class="numberTrack text-right">${index + 1}</p>
-      <img src="${track.album.cover_small}" />
       <h5 class="titleTrack m-0">${track.title}</h5>
     </div>
     <div class="col-4 d-flex justify-content-between">
@@ -113,10 +115,10 @@ const createTrackList = function (track, index) {
 
 window.addEventListener("DOMContentLoaded", () => {
   let params = new URLSearchParams(document.location.search);
-  let artistId = params.get("artistId");
-  console.log(artistId);
-  getArtist(artistId);
-  getTracks(artistId);
+  let albumId = params.get("albumId");
+  console.log(albumId);
+  getAlbumt(albumId);
+  getTracks(albumId);
 });
 
 document.getElementById("homeIcon").addEventListener("click", function () {

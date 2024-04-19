@@ -67,7 +67,7 @@
                   d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
                 ></path>
               </svg>
-              <p id="search" onclick="focusSearch()">Cerca</p>
+              <p onclick="window.location.href = 'search.html'">Cerca</p>
             </div>
             <div class="iconsL">
               <svg
@@ -249,21 +249,22 @@
                 </svg>
               </button>
               <button class="btn followBtn">FOLLOWING</button>
-              <span>
-                <svg
-                  data-encore-id="icon"
-                  role="img"
-                  aria-hidden="true"
-                  viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI mb-1"
-                  fill="white"
-                  width="1.3rem"
+              <div class="dropdown d-inline">
+                <button
+                  class="btn bg-transparent border-0"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  <path
-                    d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                  ></path>
-                </svg>
-              </span>
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="#">Aggiungi in coda</a></li>
+                  <li><a class="dropdown-item" href="#">Vai a Radio dell'artista</a></li>
+                  <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+                  <li><a class="dropdown-item" href="#">Condividi</a></li>
+                </ul>
+              </div>
             </div>
             <div class="popularTracks">
               <h4 class="mb-4">Popolari</h4>

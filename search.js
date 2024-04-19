@@ -1,3 +1,34 @@
+let playlistContainer = document.getElementById("playlist");
+const URL = "https://deezerdevs-deezer.p.rapidapi.com/search?q=pop%20playlist";
+const playlistArray = [];
+fetch(URL, {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "285e755c43mshee6ccde0f56b047p1fd3b7jsn69d102243084",
+    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+  },
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Errore nella richiesta HTTP");
+    }
+    return response.json();
+  })
+  .then((playlist) => {
+    console.log("Playlist aggiunta con successo:", playlist);
+    playlist.data.forEach((e) => {
+      let namePlaylist = document.createElement("li");
+      namePlaylist.classList.add("mt-3");
+      namePlaylist.classList.add("hiddentext");
+      namePlaylist.innerText = e.title;
+      playlistContainer.appendChild(namePlaylist);
+      playlistArray.push(e);
+    });
+  })
+  .catch((error) => {
+    console.error("Errore:", error);
+  });
+
 let containerMain = document.getElementById("containerMain");
 let searchInput = document.getElementById("searchInput");
 let posterContainer = document.getElementById("posterContainer");
@@ -55,10 +86,7 @@ volumeBrano.addEventListener("input", () => {
   if (currentAudio) {
     currentAudio.volume = volumeBrano.value;
   }
-  const percentage =
-    ((volumeBrano.value - volumeBrano.min) /
-      (volumeBrano.max - volumeBrano.min)) *
-    100;
+  const percentage = ((volumeBrano.value - volumeBrano.min) / (volumeBrano.max - volumeBrano.min)) * 100;
   document.documentElement.style.setProperty("--percentuale", percentage + "%");
 });
 
@@ -136,8 +164,7 @@ let search = () => {
         if (indexBranoPrecedente.length > 0) {
           indexBranoPrecedente.pop();
           console.log(indexBranoPrecedente);
-          const indiceBranoPrecedente =
-            indexBranoPrecedente[indexBranoPrecedente.length - 1];
+          const indiceBranoPrecedente = indexBranoPrecedente[indexBranoPrecedente.length - 1];
           const branoPrecedente = search.data[indiceBranoPrecedente];
           playAudio(branoPrecedente.preview);
           svgPlay.style.display = "inline";
@@ -162,16 +189,16 @@ let search = () => {
       divBrani.classList.add("col-md-8", "text-xs-center");
       let braniText = document.createElement("h4");
       braniText.innerText = "Brani";
-      braniText.classList.add("text-light", "mt-3", "mb-3");
+      braniText.classList.add("text-light", "mt-3", "mb-3", "ms-2");
       divBrani.appendChild(braniText);
 
       search.data.slice(1, 6).forEach((brano) => {
         console.log("brano:", brano);
         let branoCard = document.createElement("div");
-        const secondi = brano.duration;
-        const minuti = secondi / 60;
-        const minutiFormattati = minuti.toFixed(2);
-        console.log(minutiFormattati);
+        const durataInSecondi = brano.duration;
+        const minuti = Math.floor(durataInSecondi / 60);
+        const secondi = durataInSecondi % 60;
+        const durationFix = `${minuti}:${secondi < 10 ? "0" : ""}${secondi}`;
 
         branoCard.innerHTML = `
           <div class="card mb-3 bg-transparent text-light">
@@ -186,7 +213,7 @@ let search = () => {
                 </div>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-12">
-                <p class="text-white-50 text-md-end cursor-pointer mt-xs-3 mt-xl-5">${minutiFormattati}</p>
+                <p class="text-white-50 text-md-end cursor-pointer mt-xs-3 mt-xl-5">${durationFix}</p>
               </div>
             </div>
           </div>`;
