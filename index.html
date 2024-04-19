@@ -52,7 +52,7 @@
                   d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
                 ></path>
               </svg>
-              <p>Home</p>
+              <p onclick="window.location.href = 'index.html'">Home</p>
             </div>
             <div class="iconsL">
               <svg
@@ -67,7 +67,9 @@
                   d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
                 ></path>
               </svg>
-              <p id="search" onclick="window.location.href = 'search.html'">Cerca</p>
+              <p id="search" onclick="window.location.href = 'search.html'">
+                Cerca
+              </p>
             </div>
             <div class="iconsL">
               <svg
@@ -133,7 +135,9 @@
               <p>I tuoi episodi</p>
             </div>
             <hr class="text-light mt-1 mb-1" />
-            <div class="playlist-container overflow-x-hidden overflow-y-auto text-color">
+            <div
+              class="playlist-container overflow-x-hidden overflow-y-auto text-color"
+            >
               <ul id="playlist"></ul>
             </div>
           </div>
@@ -143,7 +147,10 @@
               <div class="d-flex justify-content-between container">
                 <div class="d-flex gap-4 align-items-center">
                   <div class="main-section-btn rounded-circle">
-                    <button class="btn p-0" onclick="window.location.href = 'index.html'">
+                    <button
+                      class="btn p-0"
+                      onclick="window.location.href = 'index.html'"
+                    >
                       <svg
                         data-encore-id="icon"
                         role="img"
@@ -161,7 +168,10 @@
                     </button>
                   </div>
                   <div class="main-section-btn rounded-circle">
-                    <button class="btn p-0" onclick="window.location.href = 'search.html'">
+                    <button
+                      class="btn p-0"
+                      onclick="window.location.href = 'search.html'"
+                    >
                       <span>
                         <svg
                           data-encore-id="icon"
@@ -213,7 +223,10 @@
             </div>
 
             <div class="container hero-container">
-              <section class="row bg-black bg-gradient mt-3 py-4" id="annuncio"></section>
+              <section
+                class="row bg-black bg-gradient mt-3 py-4"
+                id="annuncio"
+              ></section>
             </div>
             <div>
               <div class="d-flex align-items-center justify-content-between">
@@ -228,16 +241,23 @@
             </div>
 
             <div>
-              <div class="d-flex align-items-center justify-content-between px-3">
+              <div
+                class="d-flex align-items-center justify-content-between px-3"
+              >
                 <h2 class="text-light mt-4 mb-4">Altro di ciò che ti piace</h2>
                 <a class="mt-4 mb-4 link" href="#">VISUALIZZA TUTTO</a>
               </div>
               <div id="album" class="container">
-                <div id="rowAlbum" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 row-cols-xl-5"></div>
+                <div
+                  id="rowAlbum"
+                  class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 row-cols-xl-5"
+                ></div>
               </div>
             </div>
             <div>
-              <div class="d-flex align-items-center justify-content-between px-3">
+              <div
+                class="d-flex align-items-center justify-content-between px-3"
+              >
                 <h2 class="text-light">I tuoi artisti preferiti</h2>
                 <a class="mt-4 mb-4 link" href="#">VISUALIZZA TUTTO</a>
               </div>
@@ -250,7 +270,9 @@
             </div>
 
             <div class="d-flex flex-column gap-3 py-5">
-              <div class="d-flex gap-1 justify-content-between align-items-start">
+              <div
+                class="d-flex gap-1 justify-content-between align-items-start"
+              >
                 <div>
                   <h5 class="color">Azienda</h5>
                   <a class="d-block link" href="#">Chi siamo</a>
@@ -268,7 +290,9 @@
                 <div>
                   <h5 class="color">Link utili</h5>
                   <a class="d-block link" href="#">Assistenza</a>
-                  <a class="d-block link" href="#">App per cellulare gratuita</a>
+                  <a class="d-block link" href="#"
+                    >App per cellulare gratuita</a
+                  >
                   <a class="d-block link" href="#">Diritti del consumatore</a>
                 </div>
                 <div>
@@ -279,10 +303,18 @@
                   <a class="d-block link" href="#">Premium Student</a>
                   <a class="d-block link" href="#">Spotify Free</a>
                 </div>
-                <div class="d-flex align-items-center justify-content-center gap-1">
-                  <a class="link main-section-btn rounded-circle btn" href="#"><i class="fab fa-instagram"></i></a>
-                  <a class="link main-section-btn rounded-circle btn" href="#"><i class="fab fa-twitter"></i></a>
-                  <a class="link main-section-btn rounded-circle btn" href="#"><i class="fab fa-facebook"></i></a>
+                <div
+                  class="d-flex align-items-center justify-content-center gap-1"
+                >
+                  <a class="link main-section-btn rounded-circle btn" href="#"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a class="link main-section-btn rounded-circle btn" href="#"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a class="link main-section-btn rounded-circle btn" href="#"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
                 </div>
               </div>
               <hr class="text-secondary my-2" />
@@ -351,7 +383,9 @@
                       </div>
                       <div class="col-md-9">
                         <div class="card-body text-color">
-                          <div class="title-container d-flex justify-content-between align-items-center">
+                          <div
+                            class="title-container d-flex justify-content-between align-items-center"
+                          >
                             <h5 class="card-title m-0">Tamama</h5>
                             <span class="last-session">4 ore</span>
                           </div>
@@ -359,7 +393,9 @@
                           <p class="card-text m-0">
                             <small>In camera • Keroro Plotone</small>
                           </p>
-                          <div class="container d-flex gap-1 album-section align-items-center">
+                          <div
+                            class="container d-flex gap-1 album-section align-items-center"
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -368,7 +404,9 @@
                               class="bi bi-disc"
                               viewBox="0 0 16 16"
                             >
-                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                              <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                              />
                               <path
                                 d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
                               />
@@ -390,7 +428,9 @@
                       </div>
                       <div class="col-md-9">
                         <div class="card-body text-color">
-                          <div class="title-container d-flex justify-content-between align-items-center">
+                          <div
+                            class="title-container d-flex justify-content-between align-items-center"
+                          >
                             <h5 class="card-title m-0">Giroro</h5>
                             <span class="last-session">8 ore</span>
                           </div>
@@ -398,7 +438,9 @@
                           <p class="card-text m-0">
                             <small>In camera • Keroro Plotone</small>
                           </p>
-                          <div class="container d-flex gap-1 album-section align-items-center">
+                          <div
+                            class="container d-flex gap-1 album-section align-items-center"
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -407,7 +449,9 @@
                               class="bi bi-disc"
                               viewBox="0 0 16 16"
                             >
-                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                              <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                              />
                               <path
                                 d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
                               />
@@ -429,7 +473,9 @@
                       </div>
                       <div class="col-md-9">
                         <div class="card-body text-color">
-                          <div class="title-container d-flex justify-content-between align-items-center">
+                          <div
+                            class="title-container d-flex justify-content-between align-items-center"
+                          >
                             <h5 class="card-title m-0">Kururu</h5>
                             <span class="last-session">3 giorni</span>
                           </div>
@@ -437,7 +483,9 @@
                           <p class="card-text m-0">
                             <small>In camera • Keroro Plotone</small>
                           </p>
-                          <div class="container d-flex gap-1 album-section align-items-center">
+                          <div
+                            class="container d-flex gap-1 album-section align-items-center"
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -446,7 +494,9 @@
                               class="bi bi-disc"
                               viewBox="0 0 16 16"
                             >
-                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                              <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                              />
                               <path
                                 d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0M8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1m4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5"
                               />
@@ -464,35 +514,46 @@
         </div>
       </div>
     </main>
-    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom">
-      <div class="d-flex">
-        <div class="card m-2">
+    <footer
+      class="footer-costum d-flex justify-content-between align-items-center fixed-bottom"
+      id="footer"
+    >
+      <div class="d-flex" id="containerAlbumPlay">
+        <div class="card m-2 bg-transparent text-light">
           <div class="row g-0">
-            <div class="col">
+            <div class="col col-md-4">
               <img
-                width="70px"
+                width="120vw"
                 src="assets/imgs/main/image-2.jpg"
                 class="img-fluid rounded-start"
                 alt="playlist cover"
+                id="imgAlbumFooter"
               />
             </div>
-            <div class="col">
+            <div class="col md-8 text-center">
               <div class="card-body">
-                <h5 class="card-title">Track title</h5>
-                <p>Artist</p>
+                <h5 class="card-title mt-2" id="titoloAlbumFooter">
+                  Track title
+                </h5>
+                <p id="artistaAlbumFooter" class="m-0">Artist</p>
               </div>
             </div>
           </div>
         </div>
-        <button>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" class="bi bi-heart" viewBox="0 0 16 16">
+        <button id="svgHeart">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            class="bi bi-heart"
+            viewBox="0 0 16 16"
+          >
             <path
               d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
             ></path>
           </svg>
         </button>
       </div>
-      <div class="d-flex flex-column">
+      <div class="d-flex flex-column" id="footerPlayer">
         <div class="d-flex gap-3">
           <button>
             <svg
@@ -511,7 +572,7 @@
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoPrimo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -527,19 +588,37 @@
           </button>
           <button id="playBtn">
             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+              id="svgPausa"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+              />
+            </svg>
+
+            <svg
               width="20"
               data-encore-id="icon"
               role="img"
               aria-hidden="true"
               viewBox="0 0 16 16"
               class="Svg-sc-ytk21e-0 dYnaPI"
+              id="svgPlay"
+              style="display: none"
             >
               <path
                 d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoSecondo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -568,9 +647,17 @@
             </svg>
           </button>
         </div>
-        <div></div>
+
+        <div class="row" id="tempoDinamicoBrano">
+          <div class="col-2">
+            <p id="tempoTrascorsoBrano">0:00</p>
+          </div>
+          <div class="col-8"><div id="timeProgressBar"></div></div>
+
+          <div class="col-2"><p id="durataBrano">0:00</p></div>
+        </div>
       </div>
-      <div class="d-flex gap-1">
+      <div class="d-flex gap-1" id="footerRight">
         <button>
           <svg
             width="20"
@@ -612,7 +699,9 @@
             <path
               d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"
             ></path>
-            <path d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+            <path
+              d="M13 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-1-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+            ></path>
           </svg>
         </button>
         <div class="d-flex">
@@ -632,7 +721,14 @@
               ></path>
             </svg>
           </label>
-          <input type="range" id="volume" name="volume" min="0" max="1" step="0.01" />
+          <input
+            type="range"
+            id="volume"
+            name="volume"
+            min="0"
+            max="1"
+            step="0.01"
+          />
         </div>
         <button>
           <svg
@@ -656,6 +752,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="prova.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
