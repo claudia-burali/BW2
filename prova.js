@@ -38,7 +38,10 @@ volumeBrano.addEventListener("input", () => {
   if (currentAudio) {
     currentAudio.volume = volumeBrano.value;
   }
-  const percentage = ((volumeBrano.value - volumeBrano.min) / (volumeBrano.max - volumeBrano.min)) * 100;
+  const percentage =
+    ((volumeBrano.value - volumeBrano.min) /
+      (volumeBrano.max - volumeBrano.min)) *
+    100;
   document.documentElement.style.setProperty("--percentuale", percentage + "%");
 });
 
@@ -61,10 +64,12 @@ playBtn.addEventListener("click", () => {
 });
 
 const trackIds = [
-  92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
-  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
-  428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671, 1262269, 108444952, 10966644, 1262268, 9674822,
-  1347637, 51001312, 217658902, 14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
+  92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567,
+  102128972, 10435266, 393197607, 388425797, 1434890, 127402, 10966644,
+  137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781,
+  130380032, 428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671,
+  1262269, 108444952, 10966644, 1262268, 9674822, 1347637, 51001312, 217658902,
+  14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
 ];
 const randomtracks = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -184,12 +189,16 @@ fetch(URL, {
       namePlaylist.innerText = e.title;
       playlistContainer.appendChild(namePlaylist);
       playlistArray.push(e);
+      namePlaylist.addEventListener("click", () => {
+        window.location.href = `album.html?albumId=${e.album.id}`;
+      });
     });
     randomPlaylistCard();
 
     btnCambiaBranoSuccessivo.addEventListener("click", () => {
       const indexCasuale = randomNumber(playlistArray.length);
-      const branoCasuale = playlistArray[indexCasuale];
+      indexBranoPrecedente.push(indexCasuale);
+      const branoCasuale = playlist.data[indexCasuale];
       playAudio(branoCasuale.preview);
       svgPlay.style.display = "inline";
       svgPausa.style.display = "none";
@@ -199,14 +208,28 @@ fetch(URL, {
     });
 
     btnCambiaBranoPrecedente.addEventListener("click", () => {
-      const indexCasuale = randomNumber(playlistArray.length);
-      const branoCasuale = playlistArray[indexCasuale];
-      playAudio(branoCasuale.preview);
-      svgPlay.style.display = "inline";
-      svgPausa.style.display = "none";
-      imgAlbumFooter.src = branoCasuale.album.cover;
-      titoloAlbumFooter.innerText = branoCasuale.title;
-      artistaAlbumFooter.innerText = branoCasuale.artist.name;
+      if (indexBranoPrecedente.length > 0) {
+        indexBranoPrecedente.pop();
+        console.log(indexBranoPrecedente);
+        const indiceBranoPrecedente =
+          indexBranoPrecedente[indexBranoPrecedente.length - 1];
+        const branoPrecedente = playlist.data[indiceBranoPrecedente];
+        playAudio(branoPrecedente.preview);
+        svgPlay.style.display = "inline";
+        svgPausa.style.display = "none";
+        imgAlbumFooter.src = branoPrecedente.album.cover;
+        titoloAlbumFooter.innerText = branoPrecedente.title;
+        artistaAlbumFooter.innerText = branoPrecedente.artist.name;
+      } else {
+        const indexCasuale = randomNumber(playlistArray.length);
+        const branoCasuale = playlist.data[indexCasuale];
+        playAudio(branoCasuale.preview);
+        svgPlay.style.display = "inline";
+        svgPausa.style.display = "none";
+        imgAlbumFooter.src = branoCasuale.album.cover;
+        titoloAlbumFooter.innerText = branoCasuale.title;
+        artistaAlbumFooter.innerText = branoCasuale.artist.name;
+      }
     });
   })
   .catch((error) => {
@@ -244,10 +267,12 @@ const randomPlaylistCard = () => {
 };
 
 const albumIds = [
-  92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
-  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
-  428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671, 1262269, 108444952, 10966644, 1262268, 9674822,
-  1347637, 51001312, 217658902, 14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
+  92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567,
+  102128972, 10435266, 393197607, 388425797, 1434890, 127402, 10966644,
+  137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781,
+  130380032, 428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671,
+  1262269, 108444952, 10966644, 1262268, 9674822, 1347637, 51001312, 217658902,
+  14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
 ];
 const randomAlbums = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -308,8 +333,9 @@ const album = () => {
 };
 
 const artistIds = [
-  5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801, 12726119, 1092125, 647650, 464, 98, 407,
-  399, 58447102, 4050205, 331727, 3702, 860, 1994, 652, 848, 3037, 119, 5337922, 545, 27, 2814, 371, 931, 383, 689,
+  5286, 12247, 5608864, 4868678, 176639, 534258, 532, 458, 117, 599, 1197801,
+  12726119, 1092125, 647650, 464, 98, 407, 399, 58447102, 4050205, 331727, 3702,
+  860, 1994, 652, 848, 3037, 119, 5337922, 545, 27, 2814, 371, 931, 383, 689,
 ];
 const randomArtists = (array) => {
   array.sort(() => Math.random() - 0.5);
