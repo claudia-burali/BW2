@@ -29,6 +29,68 @@ fetch(URL, {
     console.error("Errore:", error);
   });
 
+let volumeBrano = document.getElementById("volume");
+let playBtn = document.getElementById("playBtn");
+let svgPlay = document.getElementById("svgPlay");
+let svgPausa = document.getElementById("svgPausa");
+let btnCambiaBranoPrecedente = document.getElementById("btnCambiaBranoPrimo");
+let btnCambiaBranoSuccessivo = document.getElementById("btnCambiaBranoSecondo");
+let imgAlbumFooter = document.getElementById("imgAlbumFooter");
+let titoloAlbumFooter = document.getElementById("titoloAlbumFooter");
+let artistaAlbumFooter = document.getElementById("artistaAlbumFooter");
+let tempoTrascorsoBrano = document.getElementById("tempoTrascorsoBrano");
+let durataBrano = document.getElementById("durataBrano");
+let indexBranoPrecedente = [];
+
+///CONTROLLI AUDIO
+let formatTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+};
+
+let currentAudio = null;
+
+let playAudio = (audioUrl) => {
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+  currentAudio = new Audio(audioUrl);
+
+  let volumeBrano = document.getElementById("volume").value;
+  currentAudio.volume = volumeBrano;
+  currentAudio.play();
+  currentAudio.addEventListener("timeupdate", () => {
+    tempoTrascorsoBrano.innerText = formatTime(currentAudio.currentTime);
+  });
+};
+
+volumeBrano.addEventListener("input", () => {
+  if (currentAudio) {
+    currentAudio.volume = volumeBrano.value;
+  }
+  const percentage = ((volumeBrano.value - volumeBrano.min) / (volumeBrano.max - volumeBrano.min)) * 100;
+  document.documentElement.style.setProperty("--percentuale", percentage + "%");
+});
+
+let pauseTime = 0;
+
+playBtn.addEventListener("click", () => {
+  if (currentAudio) {
+    if (currentAudio.paused) {
+      currentAudio.currentTime = pauseTime;
+      currentAudio.play();
+      svgPlay.style.display = "inline";
+      svgPausa.style.display = "none";
+    } else {
+      currentAudio.pause();
+      pauseTime = currentAudio.currentTime;
+      svgPlay.style.display = "none";
+      svgPausa.style.display = "inline";
+    }
+  }
+});
+
 const getArtist = function (idArtist) {
   let url = "https://deezerdevs-deezer.p.rapidapi.com/artist/" + idArtist;
 
@@ -81,6 +143,46 @@ const getTracks = function (artistId) {
         let trackElement = createTrackList(track, i);
         popularTracksContainer.appendChild(trackElement);
       });
+
+      const randomIndex = () => {
+        return Math.floor(Math.random() * track.data.length);
+      };
+
+      btnCambiaBranoSuccessivo.addEventListener("click", () => {
+        const indexCasuale = randomIndex();
+        indexBranoPrecedente.push(indexCasuale);
+        const branoCasuale = track.data[indexCasuale];
+        playAudio(branoCasuale.preview);
+        svgPlay.style.display = "inline";
+        svgPausa.style.display = "none";
+        imgAlbumFooter.src = branoCasuale.album.cover;
+        titoloAlbumFooter.innerText = branoCasuale.title;
+        artistaAlbumFooter.innerText = branoCasuale.artist.name;
+      });
+
+      btnCambiaBranoPrecedente.addEventListener("click", () => {
+        if (indexBranoPrecedente.length > 0) {
+          indexBranoPrecedente.pop();
+          console.log(indexBranoPrecedente);
+          const indiceBranoPrecedente = indexBranoPrecedente[indexBranoPrecedente.length - 1];
+          const branoPrecedente = track.data[indiceBranoPrecedente];
+          playAudio(branoPrecedente.preview);
+          svgPlay.style.display = "inline";
+          svgPausa.style.display = "none";
+          imgAlbumFooter.src = branoPrecedente.album.cover;
+          titoloAlbumFooter.innerText = branoPrecedente.title;
+          artistaAlbumFooter.innerText = branoPrecedente.artist.name;
+        } else {
+          const indexCasuale = randomIndex();
+          const branoCasuale = track.data[indexCasuale];
+          playAudio(branoCasuale.preview);
+          svgPlay.style.display = "inline";
+          svgPausa.style.display = "none";
+          imgAlbumFooter.src = branoCasuale.album.cover;
+          titoloAlbumFooter.innerText = branoCasuale.title;
+          artistaAlbumFooter.innerText = branoCasuale.artist.name;
+        }
+      });
     })
     .catch((error) => {
       console.error(error);
@@ -107,6 +209,15 @@ const createTrackList = function (track, index) {
     </div>
   </div>
 `;
+  trackDiv.addEventListener("click", () => {
+    playAudio(track.preview);
+    svgPlay.style.display = "inline";
+    svgPausa.style.display = "none";
+    imgAlbumFooter.src = track.album.cover;
+    titoloAlbumFooter.innerText = track.title;
+    artistaAlbumFooter.innerText = track.artist.name;
+    durataBrano.innerText = formatTime(track.duration);
+  });
 
   return trackDiv;
 };
