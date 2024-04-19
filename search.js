@@ -86,7 +86,10 @@ volumeBrano.addEventListener("input", () => {
   if (currentAudio) {
     currentAudio.volume = volumeBrano.value;
   }
-  const percentage = ((volumeBrano.value - volumeBrano.min) / (volumeBrano.max - volumeBrano.min)) * 100;
+  const percentage =
+    ((volumeBrano.value - volumeBrano.min) /
+      (volumeBrano.max - volumeBrano.min)) *
+    100;
   document.documentElement.style.setProperty("--percentuale", percentage + "%");
 });
 
@@ -143,6 +146,9 @@ let search = () => {
                 </div>`;
 
       divRow.appendChild(divAlbumPrincipale);
+      divAlbumPrincipale.addEventListener("click", () => {
+        window.location.href = `album.html?albumId=${search.data[0].album.id}`;
+      });
 
       const randomIndex = () => {
         return Math.floor(Math.random() * search.data.length);
@@ -164,7 +170,8 @@ let search = () => {
         if (indexBranoPrecedente.length > 0) {
           indexBranoPrecedente.pop();
           console.log(indexBranoPrecedente);
-          const indiceBranoPrecedente = indexBranoPrecedente[indexBranoPrecedente.length - 1];
+          const indiceBranoPrecedente =
+            indexBranoPrecedente[indexBranoPrecedente.length - 1];
           const branoPrecedente = search.data[indiceBranoPrecedente];
           playAudio(branoPrecedente.preview);
           svgPlay.style.display = "inline";

@@ -1,3 +1,65 @@
+let volumeBrano = document.getElementById("volume");
+let playBtn = document.getElementById("playBtn");
+let svgPlay = document.getElementById("svgPlay");
+let svgPausa = document.getElementById("svgPausa");
+let btnCambiaBranoPrecedente = document.getElementById("btnCambiaBranoPrimo");
+let btnCambiaBranoSuccessivo = document.getElementById("btnCambiaBranoSecondo");
+let imgAlbumFooter = document.getElementById("imgAlbumFooter");
+let titoloAlbumFooter = document.getElementById("titoloAlbumFooter");
+let artistaAlbumFooter = document.getElementById("artistaAlbumFooter");
+let tempoTrascorsoBrano = document.getElementById("tempoTrascorsoBrano");
+let durataBrano = document.getElementById("durataBrano");
+let indexBranoPrecedente = [];
+
+///CONTROLLI AUDIO
+let formatTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+};
+
+let currentAudio = null;
+
+let playAudio = (audioUrl) => {
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+  currentAudio = new Audio(audioUrl);
+
+  let volumeBrano = document.getElementById("volume").value;
+  currentAudio.volume = volumeBrano;
+  currentAudio.play();
+  currentAudio.addEventListener("timeupdate", () => {
+    tempoTrascorsoBrano.innerText = formatTime(currentAudio.currentTime);
+  });
+};
+
+volumeBrano.addEventListener("input", () => {
+  if (currentAudio) {
+    currentAudio.volume = volumeBrano.value;
+  }
+  const percentage = ((volumeBrano.value - volumeBrano.min) / (volumeBrano.max - volumeBrano.min)) * 100;
+  document.documentElement.style.setProperty("--percentuale", percentage + "%");
+});
+
+let pauseTime = 0;
+
+playBtn.addEventListener("click", () => {
+  if (currentAudio) {
+    if (currentAudio.paused) {
+      currentAudio.currentTime = pauseTime;
+      currentAudio.play();
+      svgPlay.style.display = "inline";
+      svgPausa.style.display = "none";
+    } else {
+      currentAudio.pause();
+      pauseTime = currentAudio.currentTime;
+      svgPlay.style.display = "none";
+      svgPausa.style.display = "inline";
+    }
+  }
+});
+
 const trackIds = [
   92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
   388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
@@ -8,7 +70,9 @@ const randomtracks = (array) => {
   array.sort(() => Math.random() - 0.5);
   return array.slice(0, 1);
 };
-
+const randomNumber = (max) => {
+  return Math.floor(Math.random() * max);
+};
 const randomtrackArray = randomtracks(trackIds);
 console.log(randomtrackArray);
 
@@ -45,7 +109,7 @@ const fetchtrack = (randomtrack) => {
                   <p class="text-light">${track.artist.name}</p>
                   <p class="text-light">Ascolta il nuovo singolo di ${track.artist.name}!</p>
                   <div class="d-flex align-items-center gap-2">
-                    <button class="btn playbutton rounded rounded-pill px-4 text-black fw-semibold">Play</button>
+                    <button class="btn playbutton rounded rounded-pill px-4 text-black fw-semibold" id="btnPlayIndex">Play</button>
                     <button class="btn rounded rounded-pill px-4 btn-outline-light">Salva</button>
                     <div class="dropdown d-inline">
                       <button
@@ -74,6 +138,15 @@ const fetchtrack = (randomtrack) => {
                   </button>
                 </div>
                 `;
+      document.getElementById("btnPlayIndex").addEventListener("click", () => {
+        playAudio(track.preview);
+        svgPlay.style.display = "inline";
+        svgPausa.style.display = "none";
+        imgAlbumFooter.src = track.album.cover_medium;
+        titoloAlbumFooter.innerText = track.title;
+        artistaAlbumFooter.innerText = track.artist.name;
+        durataBrano.innerText = formatTime(track.duration);
+      });
     })
     .catch((error) => {
       console.error("Errore:", error);
@@ -113,6 +186,28 @@ fetch(URL, {
       playlistArray.push(e);
     });
     randomPlaylistCard();
+
+    btnCambiaBranoSuccessivo.addEventListener("click", () => {
+      const indexCasuale = randomNumber(playlistArray.length);
+      const branoCasuale = playlistArray[indexCasuale];
+      playAudio(branoCasuale.preview);
+      svgPlay.style.display = "inline";
+      svgPausa.style.display = "none";
+      imgAlbumFooter.src = branoCasuale.album.cover;
+      titoloAlbumFooter.innerText = branoCasuale.title;
+      artistaAlbumFooter.innerText = branoCasuale.artist.name;
+    });
+
+    btnCambiaBranoPrecedente.addEventListener("click", () => {
+      const indexCasuale = randomNumber(playlistArray.length);
+      const branoCasuale = playlistArray[indexCasuale];
+      playAudio(branoCasuale.preview);
+      svgPlay.style.display = "inline";
+      svgPausa.style.display = "none";
+      imgAlbumFooter.src = branoCasuale.album.cover;
+      titoloAlbumFooter.innerText = branoCasuale.title;
+      artistaAlbumFooter.innerText = branoCasuale.artist.name;
+    });
   })
   .catch((error) => {
     console.error("Errore:", error);
@@ -150,10 +245,9 @@ const randomPlaylistCard = () => {
 
 const albumIds = [
   92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
-  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700,
+  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
+  428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671, 1262269, 108444952, 10966644, 1262268, 9674822,
   1347637, 51001312, 217658902, 14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
-  513551092, 116709712, 560398332, 393585737, 46000842, 449896035,
-
 ];
 const randomAlbums = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -199,8 +293,6 @@ const fetchAlbum = (randomAlbum) => {
       albumCard.addEventListener("click", () => {
         window.location.href = `album.html?albumId=${album.id}`;
       });
-
-      document.getElementById("rowAlbum").appendChild(albumCard);
     })
 
     .catch((error) => {
@@ -278,7 +370,3 @@ window.onload = () => {
   album();
   artist();
 };
-
-document.getElementById("homeIcon").addEventListener("click", function () {
-  window.location.href = "index.html";
-});
