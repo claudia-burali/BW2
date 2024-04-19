@@ -39,7 +39,7 @@
                 <img src="assets/imgs/logo.svg" alt="logo" width="100px" />
               </button>
             </div>
-            <div class="iconsL mt-4">
+            <div class="iconsL mt-4" id="homeIcon">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -213,17 +213,16 @@
             </div>
 
             <div class="d-flex align-items-end gap-3 text-light">
-              <div>
-                <img src="/assets/imgs/main/image-1.jpg" alt="album cover" />
-              </div>
+              <div id="albumCover"></div>
               <div>
                 <h6>ALBUM</h6>
-                <h1>Album Title</h1>
+                <h1 class="albumTitle"></h1>
                 <div>
                   <img width="50" class="rounded-circle" src="/assets/imgs/main/image-1.jpg" alt="artist picture" />
                   <a class="link" href="#">Artist Name</a>
                   <p class="d-inline text-secondary">Anno</p>
-                  <p class="d-inline text-secondary">Numero Brani, Durata</p>
+                  <p class="d-inline text-secondary track"></p>
+                  <p class="d-inline text-secondary time"></p>
                 </div>
               </div>
             </div>
@@ -261,7 +260,9 @@
               </div>
               <div></div>
             </div>
-
+            <div class="albumTracks">
+              <h4 class="mb-4 text-light">cose</h4>
+            </div>
             <div class="d-flex flex-column gap-3 py-5">
               <div class="d-flex gap-1 justify-content-between align-items-start">
                 <div>
@@ -669,6 +670,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="prova.js"></script>
+    <script src="album.js"></script>
   </body>
 </html>

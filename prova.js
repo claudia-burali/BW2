@@ -104,8 +104,16 @@ const fetchAlbum = (randomAlbum) => {
       </div>
       </div>
       </div>`;
+
+      albumCard.setAttribute("data-album-id", album.id);
+
+      albumCard.addEventListener("click", () => {
+        window.location.href = `album.html?albumId=${album.id}`;
+      });
+
       document.getElementById("rowAlbum").appendChild(albumCard);
     })
+
     .catch((error) => {
       console.error("Errore:", error);
     });
