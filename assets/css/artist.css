@@ -1,0 +1,128 @@
+.header-main-section {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+
+main {
+  .main-section {
+    color: white;
+    position: relative;
+    .backgroundArtistImage {
+      height: 650px;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-left: 30px;
+      h1 {
+        font-size: 6em;
+        font-weight: 700;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0);
+      }
+      .fan {
+        font-size: 0.9em;
+        margin-bottom: 3em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0);
+      }
+      .verifiedCostum {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0);
+      }
+    }
+    #svgVerified {
+      fill: #0c67d3;
+    }
+    .buttonsArtist {
+      margin-top: 20px;
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      .playbutton {
+        background-color: #1db954;
+        width: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .followBtn {
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        font-size: 0.7em;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+    .playbutton {
+      background-color: #1db954;
+      width: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .popularTracks {
+      margin-top: 20px;
+      padding-inline: 20px;
+      .track {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        p {
+          margin: 0;
+          color: rgb(179, 179, 179);
+        }
+        .numberTrack {
+          font-size: 0.8em;
+          text-align: right;
+        }
+        .titleTrack {
+          font-size: 1.1em;
+        }
+
+        img {
+          width: 50px;
+          border-radius: 5px;
+          margin-inline: 20px;
+        }
+
+        p {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.track:hover {
+  cursor: pointer;
+  background-color: #2e2e2e;
+  border-radius: 5px;
+}
+
+.albumTitle {
+  font-size: 80px;
+}
+.name {
+  font-size: 16px;
+  color: white;
+}
+.date {
+  color: white;
+}
+.track {
+  color: white;
+}
+
+.albumbg {
+  background: linear-gradient(rgba(109, 15, 15, 0.644), rgba(44, 21, 21, 0.74));
+}
+
+.dimensione {
+  width: 100px;
+}
