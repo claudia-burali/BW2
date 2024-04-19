@@ -32,8 +32,8 @@ const fetchtrack = (randomtrack) => {
     })
     .then((track) => {
       console.log("track aggiunto con successo:", track);
-      let trackCard = document.createElement("div");
-      trackCard.innerHTML = `
+      let annuncio = document.getElementById("annuncio");
+      annuncio.innerHTML = `
       <div class="col-2">
                   <div>
                     <img src="${track.album.cover_xl}" alt="" class="img-fluid" />
@@ -73,24 +73,18 @@ const fetchtrack = (randomtrack) => {
                     NASCONDI ANNUNCI
                   </button>
                 </div>
-                </div>
                 `;
-      document.getElementById("annuncio").appendChild(trackCard);
     })
     .catch((error) => {
       console.error("Errore:", error);
     });
-  };
-
+};
 
 const track = () => {
   randomtrackArray.forEach((randomtrack) => {
     fetchtrack(randomtrack);
   });
 };
-
-
-
 
 let playlistContainer = document.getElementById("playlist");
 const URL = "https://deezerdevs-deezer.p.rapidapi.com/search?q=pop%20playlist";
@@ -271,7 +265,7 @@ const artist = () => {
   });
 };
 window.onload = () => {
-  track()
+  track();
   album();
   artist();
 };
