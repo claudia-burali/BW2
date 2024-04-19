@@ -58,7 +58,8 @@ const getAlbum = function (idAlbum) {
       let name = document.querySelector(".name");
       name.innerText = album.artist.name;
       let date = document.querySelector(".date");
-      date.innerText = "_" + album.release_date + "_";
+      let year = album.release_date.slice(0, 4);
+      date.innerText = "• " + year + " •";
       let tracks = document.querySelector(".track");
       tracks.innerText = album.nb_tracks + " brani,";
       let duration = document.querySelector(".time");
@@ -111,8 +112,8 @@ const createTrackList = function (track, index) {
 
   trackDiv.innerHTML = `
   <div class="track row">
-    <div class="col-8 d-flex align-items-center">
-      <p class="numberTrack text-right">${index + 1}</p>
+    <div class="col-8 d-flex align-items-center gap-4">
+      <p class="numberTrack text-right m-0">${index + 1}</p>
       <h5 class="titleTrack m-0">${track.title}</h5>
     </div>
     <div class="col-4 d-flex justify-content-between">

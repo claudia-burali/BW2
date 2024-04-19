@@ -107,3 +107,11 @@ main {
 .track {
   color: white;
 }
+
+.albumbg {
+  background: linear-gradient(rgba(109, 15, 15, 0.644), rgba(44, 21, 21, 0.74));
+}
+
+.dimensione {
+  width: 100px;
+}
