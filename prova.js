@@ -209,10 +209,7 @@ fetch(URL, {
 
     btnCambiaBranoPrecedente.addEventListener("click", () => {
       if (indexBranoPrecedente.length > 0) {
-        indexBranoPrecedente.pop();
-        console.log(indexBranoPrecedente);
-        const indiceBranoPrecedente =
-          indexBranoPrecedente[indexBranoPrecedente.length - 1];
+        const indiceBranoPrecedente = indexBranoPrecedente.pop();
         const branoPrecedente = playlist.data[indiceBranoPrecedente];
         playAudio(branoPrecedente.preview);
         svgPlay.style.display = "inline";
@@ -263,6 +260,9 @@ const randomPlaylistCard = () => {
             </div>
             </div> `;
     document.getElementById("rowPlaylist").appendChild(cardDiv);
+    cardDiv.addEventListener("click", () => {
+      window.location.href = `album.html?albumId=${playlistArray.album.id}`;
+    });
   });
 };
 
