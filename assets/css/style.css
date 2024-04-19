@@ -1,3 +1,11 @@
+button,
+img,
+a,
+svg,
+li {
+  cursor: pointer;
+}
+
 body {
   font-family: "Circular", sans-serif;
   height: 100vh;
@@ -170,7 +178,7 @@ main {
   color: white;
 }
 
-/*footer svg {
+/* footer svg {
   cursor: pointer;
   fill: rgb(179, 179, 179);
   &:hover {
@@ -180,7 +188,7 @@ main {
 footer button {
   background-color: transparent;
   border: none;
-}*/
+} */
 svg,
 i {
   cursor: pointer;

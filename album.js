@@ -38,10 +38,7 @@ volumeBrano.addEventListener("input", () => {
   if (currentAudio) {
     currentAudio.volume = volumeBrano.value;
   }
-  const percentage =
-    ((volumeBrano.value - volumeBrano.min) /
-      (volumeBrano.max - volumeBrano.min)) *
-    100;
+  const percentage = ((volumeBrano.value - volumeBrano.min) / (volumeBrano.max - volumeBrano.min)) * 100;
   document.documentElement.style.setProperty("--percentuale", percentage + "%");
 });
 
@@ -126,6 +123,9 @@ const getAlbum = function (idAlbum) {
       <img style="width:40px" class="rounded-circle picture" src="${album.artist.picture_small}" alt="artist picture"/>`;
       let name = document.querySelector(".name");
       name.innerText = album.artist.name;
+      name.addEventListener("click", () => {
+        window.location.href = `artist.html?artistId=${album.artist.id}`;
+      });
       let date = document.querySelector(".date");
       let year = album.release_date.slice(0, 4);
       date.innerText = "• " + year + " •";
@@ -157,8 +157,7 @@ const getAlbum = function (idAlbum) {
         if (indexBranoPrecedente.length > 0) {
           indexBranoPrecedente.pop();
           console.log(indexBranoPrecedente);
-          const indiceBranoPrecedente =
-            indexBranoPrecedente[indexBranoPrecedente.length - 1];
+          const indiceBranoPrecedente = indexBranoPrecedente[indexBranoPrecedente.length - 1];
           const branoPrecedente = album.tracks.data[indiceBranoPrecedente];
           playAudio(branoPrecedente.preview);
           svgPlay.style.display = "inline";
@@ -184,8 +183,7 @@ const getAlbum = function (idAlbum) {
 };
 
 const getTracks = function (albumId) {
-  let url =
-    "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
+  let url = "https://striveschool-api.herokuapp.com/api/deezer/album/" + albumId;
   fetch(url, {
     method: "GET",
     headers: {

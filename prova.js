@@ -304,7 +304,6 @@ const fetchAlbum = (randomAlbum) => {
       </div>
       </div>
       </div>`;
-
       albumCard.setAttribute("data-album-id", album.id);
 
       albumCard.addEventListener("click", () => {

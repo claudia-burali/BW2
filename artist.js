@@ -219,6 +219,17 @@ const createTrackList = function (track, index) {
     durataBrano.innerText = formatTime(track.duration);
   });
 
+  const btnArtist = document.getElementById("btnPlayArtist");
+  btnArtist.addEventListener("click", () => {
+    playAudio(track.preview);
+    svgPlay.style.display = "inline";
+    svgPausa.style.display = "none";
+    imgAlbumFooter.src = track.album.cover_medium;
+    titoloAlbumFooter.innerText = track.title;
+    artistaAlbumFooter.innerText = track.artist.name;
+    durataBrano.innerText = formatTime(track.duration);
+  });
+
   return trackDiv;
 };
 
