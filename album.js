@@ -49,13 +49,17 @@ const getAlbum = function (idAlbum) {
       console.log(album);
       let albumCover = document.getElementById("albumCover");
       albumCover.innerHTML = `
-      <img src="${album.cover_xl}" alt="album cover"/>`;
+      <img style="width:250px" src="${album.cover_xl}" alt="album cover"/>`;
       let h1 = document.querySelector(".albumTitle");
       h1.innerText = album.title;
       let tracks = document.querySelector(".track");
       tracks.innerText = album.nb_tracks + " brani,";
       let duration = document.querySelector(".time");
-      duration.innerText = album.duration + " sec.";
+      const durata = album.duration;
+      const min = Math.floor(durata / 60);
+      const sec = durata % 60;
+      const durataFix = `${min} min ${sec < 10 ? "0" : ""}${sec} sec.`;
+      duration.innerText = durataFix;
     })
     .catch((error) => {
       console.error(error);
@@ -80,8 +84,9 @@ const getTracks = function (albumId) {
     .then((track) => {
       console.log(track.data);
       let albumTracksContainer = document.querySelector(".albumTracks");
-      track.data.forEach((track, i) => {
+      track.tracks.data.forEach((track, i) => {
         let trackElement = createTrackList(track, i);
+        trackElement.classList.add("text-light");
         albumTracksContainer.appendChild(trackElement);
       });
     })
@@ -117,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let params = new URLSearchParams(document.location.search);
   let albumId = params.get("albumId");
   console.log(albumId);
-  getAlbumt(albumId);
+  getAlbum(albumId);
   getTracks(albumId);
 });
 

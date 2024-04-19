@@ -1,3 +1,91 @@
+const trackIds = [
+  92956572, 94352652, 6899610, 620594, 299319, 13793191, 343880917, 387589567, 102128972, 10435266, 393197607,
+  388425797, 1434890, 127402, 10966644, 137272602, 309377597, 6816700, 469682765, 560398332, 81797, 6364781, 130380032,
+  428115167, 74606742, 1318764, 8015598, 125584, 14879699, 36963671, 1262269, 108444952, 10966644, 1262268, 9674822,
+  1347637, 51001312, 217658902, 14581088, 6575789, 97418, 96844662, 78630952, 387946, 105611582, 6816700,
+];
+const randomtracks = (array) => {
+  array.sort(() => Math.random() - 0.5);
+  return array.slice(0, 1);
+};
+
+const randomtrackArray = randomtracks(trackIds);
+console.log(randomtrackArray);
+
+const URL_track_BASE = "https://deezerdevs-deezer.p.rapidapi.com/track/";
+
+const fetchtrack = (randomtrack) => {
+  const URL_track = URL_track_BASE + randomtrack;
+
+  fetch(URL_track, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "e23e65d97bmshc3b906327a3687ap1be94fjsn81aa82475de1",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Errore nella richiesta HTTP");
+      }
+      return response.json();
+    })
+    .then((track) => {
+      console.log("track aggiunto con successo:", track);
+      let annuncio = document.getElementById("annuncio");
+      annuncio.innerHTML = `
+      <div class="col-2">
+                  <div>
+                    <img src="${track.album.cover_xl}" alt="" class="img-fluid" />
+                  </div>
+                </div>
+                <div class="col-8">
+                  <small class="text-light">${track.album.title}</small>
+                  <h2 class="text-light">${track.title}</h2>
+                  <p class="text-light">${track.artist.name}</p>
+                  <p class="text-light">Ascolta il nuovo singolo di ${track.artist.name}!</p>
+                  <div class="d-flex align-items-center gap-2">
+                    <button class="btn playbutton rounded rounded-pill px-4 text-black fw-semibold">Play</button>
+                    <button class="btn rounded rounded-pill px-4 btn-outline-light">Salva</button>
+                    <div class="dropdown d-inline">
+                      <button
+                        class="btn btn-outline-light px-3"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Aggiungi in coda</a></li>
+                        <li><a class="dropdown-item" href="#">Vai a Radio dell'artista</a></li>
+                        <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+                        <li><a class="dropdown-item" href="#">Condividi</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2 d-flex justify-content-end align-items-start" id="hiddenButtonContainer">
+                  <button
+                    class="btn annuncedbutton text-white-50 rounded rounded-pill py-1 hiddenButton fw-semibold"
+                    href="#annuncio"
+                  >
+                    NASCONDI ANNUNCI
+                  </button>
+                </div>
+                `;
+    })
+    .catch((error) => {
+      console.error("Errore:", error);
+    });
+};
+
+const track = () => {
+  randomtrackArray.forEach((randomtrack) => {
+    fetchtrack(randomtrack);
+  });
+};
+
 let playlistContainer = document.getElementById("playlist");
 const URL = "https://deezerdevs-deezer.p.rapidapi.com/search?q=pop%20playlist";
 const playlistArray = [];
@@ -185,6 +273,7 @@ const artist = () => {
   });
 };
 window.onload = () => {
+  track();
   album();
   artist();
 };
