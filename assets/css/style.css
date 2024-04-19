@@ -257,3 +257,15 @@ input[type="range"]::-webkit-slider-thumb {
 .background-costum {
   background-color: #2e2e2e;
 }
+
+#footerPlayer {
+  width: 50%;
+  align-items: center;
+}
+
+#tempoDinamicoBrano {
+  width: 100%;
+}
+#tempoTrascorsoBrano {
+  text-align: end;
+}
