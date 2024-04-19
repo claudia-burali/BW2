@@ -23,6 +23,9 @@ fetch(URL, {
       namePlaylist.innerText = e.title;
       playlistContainer.appendChild(namePlaylist);
       playlistArray.push(e);
+      namePlaylist.addEventListener("click", () => {
+        window.location.href = `album.html?albumId=${e.album.id}`;
+      });
     });
   })
   .catch((error) => {

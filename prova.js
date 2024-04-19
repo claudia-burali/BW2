@@ -183,12 +183,16 @@ fetch(URL, {
       namePlaylist.innerText = e.title;
       playlistContainer.appendChild(namePlaylist);
       playlistArray.push(e);
+      namePlaylist.addEventListener("click", () => {
+        window.location.href = `album.html?albumId=${e.album.id}`;
+      });
     });
     randomPlaylistCard();
 
     btnCambiaBranoSuccessivo.addEventListener("click", () => {
       const indexCasuale = randomNumber(playlistArray.length);
-      const branoCasuale = playlistArray[indexCasuale];
+      indexBranoPrecedente.push(indexCasuale);
+      const branoCasuale = playlist.data[indexCasuale];
       playAudio(branoCasuale.preview);
       svgPlay.style.display = "inline";
       svgPausa.style.display = "none";
@@ -198,14 +202,25 @@ fetch(URL, {
     });
 
     btnCambiaBranoPrecedente.addEventListener("click", () => {
-      const indexCasuale = randomNumber(playlistArray.length);
-      const branoCasuale = playlistArray[indexCasuale];
-      playAudio(branoCasuale.preview);
-      svgPlay.style.display = "inline";
-      svgPausa.style.display = "none";
-      imgAlbumFooter.src = branoCasuale.album.cover;
-      titoloAlbumFooter.innerText = branoCasuale.title;
-      artistaAlbumFooter.innerText = branoCasuale.artist.name;
+      if (indexBranoPrecedente.length > 0) {
+        const indiceBranoPrecedente = indexBranoPrecedente.pop();
+        const branoPrecedente = playlist.data[indiceBranoPrecedente];
+        playAudio(branoPrecedente.preview);
+        svgPlay.style.display = "inline";
+        svgPausa.style.display = "none";
+        imgAlbumFooter.src = branoPrecedente.album.cover;
+        titoloAlbumFooter.innerText = branoPrecedente.title;
+        artistaAlbumFooter.innerText = branoPrecedente.artist.name;
+      } else {
+        const indexCasuale = randomNumber(playlistArray.length);
+        const branoCasuale = playlist.data[indexCasuale];
+        playAudio(branoCasuale.preview);
+        svgPlay.style.display = "inline";
+        svgPausa.style.display = "none";
+        imgAlbumFooter.src = branoCasuale.album.cover;
+        titoloAlbumFooter.innerText = branoCasuale.title;
+        artistaAlbumFooter.innerText = branoCasuale.artist.name;
+      }
     });
   })
   .catch((error) => {
@@ -239,6 +254,9 @@ const randomPlaylistCard = () => {
             </div>
             </div> `;
     document.getElementById("rowPlaylist").appendChild(cardDiv);
+    cardDiv.addEventListener("click", () => {
+      window.location.href = `album.html?albumId=${playlistArray.album.id}`;
+    });
   });
 };
 

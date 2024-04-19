@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spotify_Home_Page</title>
+    <title>Spotify_Album_Page</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -52,7 +52,7 @@
                   d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
                 ></path>
               </svg>
-              <p>Home</p>
+              <p onclick="window.location.href = 'index.html'">Home</p>
             </div>
             <div class="iconsL">
               <svg
@@ -144,7 +144,7 @@
                 <div class="d-flex justify-content-between container">
                   <div class="d-flex gap-4 align-items-center">
                     <div class="main-section-btn rounded-circle">
-                      <button class="btn p-0">
+                      <button class="btn p-0" onclick="window.location.href = 'index.html'">
                         <svg
                           data-encore-id="icon"
                           role="img"
@@ -231,7 +231,7 @@
             <div class="p-3">
               <div class="my-4">
                 <div class="d-flex align-items-center gap-4">
-                  <button class="btn playbutton rounded-circle bg-success fw-semibold">
+                  <button class="btn playbutton rounded-circle bg-success fw-semibold" id="btnPlayAlbum">
                     <i class="fas fa-play"></i>
                   </button>
                   <button class="border-0">
@@ -512,27 +512,28 @@
         </div>
       </div>
     </main>
-    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom">
-      <div class="d-flex">
-        <div class="card m-2">
+    <footer class="footer-costum d-flex justify-content-between align-items-center fixed-bottom" id="footer">
+      <div class="d-flex" id="containerAlbumPlay">
+        <div class="card m-2 bg-transparent text-light">
           <div class="row g-0">
-            <div class="col">
+            <div class="col col-md-4">
               <img
-                width="70px"
+                width="120vw"
                 src="assets/imgs/main/image-2.jpg"
                 class="img-fluid rounded-start"
                 alt="playlist cover"
+                id="imgAlbumFooter"
               />
             </div>
-            <div class="col">
+            <div class="col md-8 text-center">
               <div class="card-body">
-                <h5 class="card-title">Track title</h5>
-                <p>Artist</p>
+                <h5 class="card-title mt-2" id="titoloAlbumFooter">Track title</h5>
+                <p id="artistaAlbumFooter" class="m-0">Artist</p>
               </div>
             </div>
           </div>
         </div>
-        <button>
+        <button id="svgHeart">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" class="bi bi-heart" viewBox="0 0 16 16">
             <path
               d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
@@ -540,7 +541,7 @@
           </svg>
         </button>
       </div>
-      <div class="d-flex flex-column">
+      <div class="d-flex flex-column" id="footerPlayer">
         <div class="d-flex gap-3">
           <button>
             <svg
@@ -559,7 +560,7 @@
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoPrimo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -575,19 +576,37 @@
           </button>
           <button id="playBtn">
             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+              id="svgPausa"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+              />
+            </svg>
+
+            <svg
               width="20"
               data-encore-id="icon"
               role="img"
               aria-hidden="true"
               viewBox="0 0 16 16"
               class="Svg-sc-ytk21e-0 dYnaPI"
+              id="svgPlay"
+              style="display: none"
             >
               <path
                 d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
               ></path>
             </svg>
           </button>
-          <button>
+          <button id="btnCambiaBranoSecondo">
             <svg
               width="20"
               data-encore-id="icon"
@@ -616,9 +635,17 @@
             </svg>
           </button>
         </div>
-        <div></div>
+
+        <div class="row" id="tempoDinamicoBrano">
+          <div class="col-2">
+            <p id="tempoTrascorsoBrano">0:00</p>
+          </div>
+          <div class="col-8"><div id="timeProgressBar"></div></div>
+
+          <div class="col-2"><p id="durataBrano">0:00</p></div>
+        </div>
       </div>
-      <div class="d-flex gap-1">
+      <div class="d-flex gap-1" id="footerRight">
         <button>
           <svg
             width="20"
@@ -680,7 +707,7 @@
               ></path>
             </svg>
           </label>
-          <input type="range" id="volume" name="volume" min="0" max="50" />
+          <input type="range" id="volume" name="volume" min="0" max="1" step="0.01" />
         </div>
         <button>
           <svg
